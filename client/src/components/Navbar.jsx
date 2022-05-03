@@ -6,7 +6,8 @@ import {ShoppingCartOutlined } from '@mui/icons-material'
 
 //creating styled components
 const Container = styled.div`
-  height: 100px;
+  height: 120px;
+  background-color: #c5f0fc;
 `;
 
 const Wrapper = styled.div`
@@ -25,6 +26,7 @@ const Left = styled.div`
 const Center = styled.div`
   flex: 1;
   text-align: center;
+  font-size:32px;
 `;
 
 const Logo = styled.h1`
@@ -40,7 +42,7 @@ const Right = styled.div`
 `;
 
 const Item = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   margin-left: 25px;
 
