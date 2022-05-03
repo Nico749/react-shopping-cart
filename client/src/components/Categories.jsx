@@ -9,14 +9,23 @@ padding:20px;
 justify-content:space-between;
 
 `
+const Title = styled.h1`
+justify-content:center;
+text-align:center;
+font-size:50px;
+font-weight:bold;
+`
+
 
 function Categories() {
   return (
+      <>
+      <Title>OUR PRODUCTS</Title>
     <Container>
       {categories.map(item=>(
           <Category item = {item} key ={item.id}/>
       ))}
-    </Container>
+    </Container></>
   )
 }
 

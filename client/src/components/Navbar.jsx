@@ -65,7 +65,7 @@ const Navbar = () => {
           </Center>
           <Right>
           <Item>REGISTER</Item>
-          <Item>SIGN IN</Item>
+          <Item>LOG IN</Item>
           <Item><Badge badgeContent={4} color="primary">
             <ShoppingCartOutlined
               color="action" />
