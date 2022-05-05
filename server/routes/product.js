@@ -48,7 +48,7 @@ router.get("/", async(req,res)=>{
             }})
         }
         else {
-            const Products = await Product.find()
+            products = await Product.find()
         }
    
         res.status(200).json(products)
