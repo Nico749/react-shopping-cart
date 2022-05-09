@@ -6,6 +6,8 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
+import { addProduct } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 
 const Container = styled.div`
@@ -123,6 +125,8 @@ const Product = () => {
   const id = location.pathname.split('/')[2]
 
   const [product,setProduct] = useState({})
+  const [quantity,setQuantity] = useState(1)
+  const dispatch = useDispatch()
 //retrieving single product
   useEffect(()=>{
       const getProduct = async ()=>{
@@ -136,6 +140,22 @@ const Product = () => {
       }
       getProduct()
   },[id])
+
+  //handling quantity to put in the cart 
+  const handleQty = (type) =>{
+    if (type === "dec"){
+      quantity>1 && setQuantity(quantity-1)
+    }
+    else {
+      setQuantity(quantity+1)
+    }
+  }
+
+  //update cart
+  //calling the product action and passing price and quantity as payload
+  const handleCart =() =>{
+   dispatch(addProduct({...product, quantity}))
+  }
   
   return (
     <Container>
@@ -152,11 +172,11 @@ const Product = () => {
          
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={()=>handleQty("dec")}/>
+              <Amount>{quantity}</Amount>
+              <Add onClick={()=>handleQty("inc")}/>
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleCart}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

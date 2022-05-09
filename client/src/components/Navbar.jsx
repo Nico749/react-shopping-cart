@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Badge from '@mui/material/Badge';
 import {ShoppingCartOutlined } from '@mui/icons-material'
+import {useSelector} from 'react-redux'
+import { Link } from 'react-router-dom';
 
 
 //creating styled components
@@ -50,6 +52,9 @@ const Item = styled.div`
 
 
 const Navbar = () => {
+  //return cart properties, we need only the quantity
+  const cartQuantity = useSelector(state=>state.cart.quantity)
+
   return (
     <Container>
         <Wrapper>
@@ -66,10 +71,12 @@ const Navbar = () => {
           <Right>
           <Item>REGISTER</Item>
           <Item>LOG IN</Item>
-          <Item><Badge badgeContent={4} color="primary">
-            <ShoppingCartOutlined
-              color="action" />
-          </Badge></Item>
+          <Link to ="/cart">
+            <Item><Badge badgeContent={cartQuantity} color="primary">
+              <ShoppingCartOutlined
+                color="action" />
+            </Badge></Item>
+          </Link>
         </Right>   
         </Wrapper>
     
