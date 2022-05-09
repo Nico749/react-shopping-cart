@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import Products from '../components/Products';
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 
 const Container = styled.div``;
@@ -36,6 +38,11 @@ const Select = styled.select`
 const Option = styled.option``;
 
 function ProductList() {
+  const location = useLocation()
+  //retrieve the category using location
+  //console.log(location.pathname.split('/')[2]);
+  const category = location.pathname.split('/')[2];
+  const [sort, setSort] = useState("Newest")
   return (
     <Container>
       <Navbar />
@@ -45,14 +52,14 @@ function ProductList() {
          
           <Filter>
           <FilterText>Sort Products: </FilterText>
-          <Select>
-          <Option selected>Newest</Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="Newest">Newest</Option>
+            <Option value="Asc">Price (asc)</Option>
+            <Option value="Desc">Price (desc)</Option>
           </Select>
           </Filter>
       </FilterContainer>
-      <Products />
+      <Products cat={category} sort={sort}/>
       <Newsletter />
       <Footer />
     </Container>

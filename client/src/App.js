@@ -9,20 +9,29 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
+  Link,
+  Navigate
 } from "react-router-dom"
 
 function App() {
+  //const user=true
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/products/:category" element={<ProductList />} />
-      <Route path="/product/:id" element={<Product />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/cart" element={<Cart />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products/:category" element={<ProductList />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
+        {/* no match route */}
+        <Route path="*" element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+        }
+        />
+      </Routes>
   </BrowserRouter>
   );
 }

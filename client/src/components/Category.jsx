@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -46,10 +47,13 @@ const Category = ({ item }) => {
     return (
         <>
             <Container>
+                {/* Goes to that specific category */}
+                <Link to={`/products/${item.cat}`} style={{ textDecoration: 'none' }}>
                 <Info> <Image src={item.img} />
                     <Title>{item.title}</Title>
                     <Button>SHOP NOW</Button>
                 </Info>
+                </Link>
             </Container>
         </>
     );

@@ -21,32 +21,38 @@ export const categories = [
     {
         id:1,
         img: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnJlYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        title:"BREAD"
+        title:"BREAD",
+        cat:"Bread"
     },
     {
         id:2,
         img: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJ1aXRzJTIwYW5kJTIwdmVnZXRhYmxlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title:"FRUIT & VEGGIES"
+        title:"FRUIT & VEGGIES",
+        cat:"FruitVeggies"
     },
     {
         id:3,
         img:  "https://images.unsplash.com/photo-1625865019554-220ea80ea813?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmV2ZXJhZ2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        title:"DRINKS"
+        title:"DRINKS",
+        cat:"Drinks"
     },
     {
         id:4,
         img:  "https://images.unsplash.com/photo-1515872474884-c6a548860190?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZnJvemVuJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title:"FROZEN"
+        title:"FROZEN",
+        cat:"Frozen"
     },
     {
         id:5,
         img:  "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title:"MEAT"
+        title:"MEAT",
+        cat:"Meat"
     },
     {
         id:6,
         img:  "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9keSUyMHNvYXB8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        title:"BODY"
+        title:"BODY",
+        cat:"Body"
     }
 ]
 
