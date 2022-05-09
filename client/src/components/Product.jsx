@@ -2,6 +2,7 @@ import { SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
+
 //display the icons in the middle of the image 
 const Info = styled.div`
   opacity: 0;
@@ -65,14 +66,16 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  
+ 
   return (
     <Container>
     
       <Image src = {item.image} alt = "COMING SOON"/>
       <Info>
-        <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
+        {/* <Icon>
+          <ShoppingCartOutlined   />
+        </Icon> */}
         <Icon>
           <Link to ={`/product/${item._id}`}>
           <SearchOutlined />
