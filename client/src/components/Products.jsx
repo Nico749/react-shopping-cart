@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { popularProducts } from "../dummydata";
 import Product from "./Product";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 // const cors = require ('cors')
 
@@ -15,6 +16,8 @@ const Container = styled.div`
 `;
 
 const Products = ({cat,sort}) => {
+  const category = useLocation().pathname.split("/")[2]
+  //console.log(category)
 
   const [products,setProducts] = useState([])
   //const [filteredP,setFilteredP] = useState([])
@@ -23,14 +26,14 @@ const Products = ({cat,sort}) => {
   useEffect(() => {
     const getProducts = async ()=>{
       try{
-        const res = await axios.get(cat ? `http://localhost:5000/api/products?cat=${cat}` : `http://localhost:5000/api/products` )
+        const res = await axios.get( `http://localhost:5000/api/products?category=${category}`  )
         //console.log(res.data);
         setProducts(res.data)
       }
       catch{}
     }
     getProducts()
-  },[cat])
+  },[cat,category])
 //console.log(products)
 
 // useEffect(()=>{

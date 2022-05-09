@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useSelector} from 'react-redux'
+import { Link } from 'react-router-dom';
 
 
 
@@ -57,6 +58,8 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom:20px;
+
 
 `;
 
@@ -67,6 +70,7 @@ const ProductDetail = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  height:40vh;
 `;
 
 const Details = styled.div`
@@ -158,16 +162,18 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
+          <Link to ="/">
           <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag(1)</TopText>
+            <TopText>You have {cart.quantity} items in your cart </TopText>
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
             
-            {/* <Hr /> */}
+            
 
             {cart.products.map((product) => (
           <Product>
@@ -196,7 +202,9 @@ const Cart = () => {
                     $ {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
+               
             </Product>
+            
             ))}
 
           </Info>
@@ -204,13 +212,13 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 20</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
            
           
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 20</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>

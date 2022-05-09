@@ -6,6 +6,8 @@ import Newsletter from '../components/Newsletter'
 
 import Slider from '../components/Slider'
 
+
+
 const Homepage = () => {
   return (
     <div>

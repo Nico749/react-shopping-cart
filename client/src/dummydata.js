@@ -27,7 +27,7 @@ export const categories = [
     {
         id:2,
         img: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJ1aXRzJTIwYW5kJTIwdmVnZXRhYmxlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title:"FRUIT & VEGGIES",
+        title:"VEGGIES",
         cat:"FruitVeggies"
     },
     {
