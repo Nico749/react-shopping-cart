@@ -1,4 +1,5 @@
 import { Add, Remove } from '@mui/icons-material'
+import { useLocation } from 'react-router-dom';
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -116,6 +117,9 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation()
+  const id = location.pathname.split('/')[2]
+  
   return (
     <Container>
       <Navbar />
