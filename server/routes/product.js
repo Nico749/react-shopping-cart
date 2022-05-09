@@ -59,13 +59,13 @@ router.get("/", async(req,res)=>{
 //get single product 
 router.get("/find/:id", async (req, res) => {
     try {
-        const Product = await Product.findById(req.params.id);
-        const { password, ...others } = Product._doc;
-        res.status(200).json(others);
+        const product = await Product.findById(req.params.id);
+        res.status(200).json(product);
     } catch (err) {
         res.status(500).json(err);
     }
   });
 
+  
 
 module.exports = router

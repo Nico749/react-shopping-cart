@@ -1,4 +1,6 @@
 import { Add, Remove } from '@mui/icons-material'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from "styled-components";
 import Footer from "../components/Footer";
@@ -119,6 +121,21 @@ const Button = styled.button`
 const Product = () => {
   const location = useLocation()
   const id = location.pathname.split('/')[2]
+
+  const [product,setProduct] = useState({})
+//retrieving single product
+  useEffect(()=>{
+      const getProduct = async ()=>{
+        try{          
+        const res = await axios.get(`http://localhost:5000/api/products/find/`+ id)
+        //console.log(res);
+        setProduct(res.data)
+
+        }
+        catch{}
+      }
+      getProduct()
+  },[id])
   
   return (
     <Container>
@@ -126,18 +143,12 @@ const Product = () => {
       
       <Wrapper>
         <ImgContainer>
-          <Image src="https://images.unsplash.com/photo-1527960392543-80cd0fa46382?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y29rZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
+          <Image src={product.image} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Coke Regular</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </Desc>
-          <Price>$ 20</Price>
+          <Title>{product.title}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>$ {product.price}</Price>
          
           <AddContainer>
             <AmountContainer>
