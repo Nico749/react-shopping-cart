@@ -13,16 +13,20 @@ import {
   Navigate
 } from "react-router-dom"
 
+import { useSelector } from 'react-redux';
+
 function App() {
-  const user=false
+  const user=useSelector((state)=>state.user.currentUser)
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login">{user ? <Navigate to="/" replace /> : <Login />}</Route>
+        <Route path="/register">
+          {user ? <Navigate to="/" /> : <Register />}
+        </Route>
         <Route path="/cart" element={<Cart />} />
         {/* no match route */}
         <Route path="*" element={

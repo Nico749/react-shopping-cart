@@ -16,6 +16,7 @@ mongoose
 .connect(process.env.MONGO_URL)
 .then(()=>{console.log("Db connection successfull")})
 .catch((err)=>{console.log(err)})
+//prevent errors with CORS
 app.use(cors({
     origin: "http://localhost:3000",
     credentials: true,            //access-control-allow-credentials:true

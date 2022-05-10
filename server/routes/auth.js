@@ -28,7 +28,9 @@ router.post('/login', async (req, res) => {
     
     try {
         const user = await User.findOne({ username: req.body.username })
-        if (!user) { res.status(401).json("No user existing with that username") }
+        if (!user) { 
+            res.status(401).json("No user existing with that username") 
+            return}
         const hashedPwd = CryptoJS.AES.decrypt(user.password, process.env.PASS_CRYPTOJS);
         const pwd = hashedPwd.toString(CryptoJS.enc.Utf8)
         if (pwd !== req.body.password) {
