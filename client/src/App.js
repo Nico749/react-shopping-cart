@@ -23,10 +23,12 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/login">{user ? <Navigate to="/" replace /> : <Login />}</Route>
+        {/* <Route path="/login">{user ? <Navigate to="/" replace /> : <Login />}</Route>
         <Route path="/register">
           {user ? <Navigate to="/" /> : <Register />}
-        </Route>
+        </Route> */}
+        <Route path="/login" element={<Login />} />
+   
         <Route path="/cart" element={<Cart />} />
         {/* no match route */}
         <Route path="*" element={

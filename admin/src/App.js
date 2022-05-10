@@ -9,13 +9,19 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
+import Login from "./pages/login/Login";
 function App() {
   return (
     <Router>
-      <Topbar />
+        <Switch>
+        <Route path="/login">
+            <Login />
+          </Route>
+      
+          <Topbar />
       <div className="container">
         <Sidebar />
-        <Switch>
+      
           <Route exact path="/">
             <Home />
           </Route>
@@ -37,8 +43,9 @@ function App() {
           <Route path="/newproduct">
             <NewProduct />
           </Route>
-        </Switch>
+         
       </div>
+        </Switch>
     </Router>
   );
 }
