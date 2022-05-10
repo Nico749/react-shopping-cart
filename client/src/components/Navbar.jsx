@@ -69,8 +69,12 @@ const Navbar = () => {
             <Logo>NICO'S SHOP</Logo>
           </Center>
           <Right>
-          <Item>REGISTER</Item>
+          <Link to ='/register' style={{ textDecoration: 'none', color:'black' }}>
+            <Item>REGISTER</Item>
+          </Link>
+          <Link to ='/login' style={{ textDecoration: 'none', color:'black' }}>
           <Item>LOG IN</Item>
+          </Link>
           <Link to ="/cart">
             <Item><Badge badgeContent={cartQuantity} color="primary">
               <ShoppingCartOutlined

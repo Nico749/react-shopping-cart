@@ -16,7 +16,11 @@ mongoose
 .connect(process.env.MONGO_URL)
 .then(()=>{console.log("Db connection successfull")})
 .catch((err)=>{console.log(err)})
-
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+  }))
 app.use(express.json())
 app.use('/api/users',userRoute)
 app.use('/api/auth', authRoute)
