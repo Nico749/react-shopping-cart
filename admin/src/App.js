@@ -11,6 +11,8 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import Login from "./pages/login/Login";
 function App() {
+  //check if the user is an admin
+ const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.isAdmin 
   return (
     <Router>
         <Switch>
@@ -18,7 +20,8 @@ function App() {
             <Login />
           </Route>
       
-          <Topbar />
+    {  admin && ( <>
+     <Topbar />
       <div className="container">
         <Sidebar />
       
@@ -45,6 +48,7 @@ function App() {
           </Route>
          
       </div>
+      </>)}
         </Switch>
     </Router>
   );
