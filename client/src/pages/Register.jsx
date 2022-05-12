@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import styled from "styled-components";
 
 
@@ -63,14 +64,17 @@ const Button = styled.button`
 
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [mail, setMail] = useState('')
   return (
     <Container>
       <Wrapper>
         <Title> REGISTER</Title>
         <Form>
-          <Input placeholder="username" />
-          <Input placeholder="mail" />
-          <Input placeholder="password" />
+          <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+          <Input placeholder="mail" onChange={(e) => setMail(e.target.value)}/>
+          <Input placeholder="password" onChange={(e) => setPassword(e.target.value)} />
           <Button>REGISTER</Button>
         
         </Form>

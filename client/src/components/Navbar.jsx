@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Badge from '@mui/material/Badge';
-import {ShoppingCartOutlined } from '@mui/icons-material'
-import {useSelector} from 'react-redux'
+import {FaxRounded, ShoppingCartOutlined } from '@mui/icons-material'
+import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
+import Auth from '../utils';
+import { userLogout } from '../redux/apiCalls'
+
+
 
 
 //creating styled components
@@ -52,10 +56,66 @@ const Item = styled.div`
 
 
 const Navbar = () => {
+
+  const dispatch = useDispatch()
+  const user=useSelector((state)=>state.user.currentUser)
+
+  // function showNavigation() {
+
+  //   const handleLogout =(e)=>{
+  //     e.preventDefault()
+  //     userLogout(dispatch)
+  // }
+  //   if (Auth.loggedIn()) {
+  //     return (
+  //       <ul className="flex-row">
+  //         <li className="mx-1">
+  //           <Link to="/orderHistory">
+  //             Order History
+  //           </Link>
+  //         </li>
+  //         <li className="mx-1">
+  //           {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+  //           <a href="/" onClick={handleLogout}>
+  //             Logout
+  //           </a>
+  //         </li>
+  //       </ul>
+  //     );
+  //   } else {
+  //     return (
+  //       <ul className="flex-row">
+  //         <li className="mx-1">
+  //           <Link to="/signup">
+  //             Signup
+  //           </Link>
+  //         </li>
+  //         <li className="mx-1">
+  //           <Link to="/login">
+  //             Login
+  //           </Link>
+  //         </li>
+  //       </ul>
+  //     );
+  //   }
+  // }
   //return cart properties, we need only the quantity
   const cartQuantity = useSelector(state=>state.cart.quantity)
 
   return (
+
+    // <header className="flex-row px-1">
+    //   <h1>
+    //     <Link to="/">
+    //       <span role="img" aria-label="shopping bag">🛍️</span>
+    //       -Shop-Shop
+    //     </Link>
+    //   </h1>
+
+    //   <nav>
+    //     {showNavigation()}
+    //   </nav>
+    // </header>
     <Container>
         <Wrapper>
           <Left>

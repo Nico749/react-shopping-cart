@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
             id:user._id,
             isAdmin:user.isAdmin
         }, process.env.JWT_KEY,
-           {expiresIn:"2h"})
+           {expiresIn:"1h"})
 
         //send everything but the pwd back
         const {password, ...others} = user._doc

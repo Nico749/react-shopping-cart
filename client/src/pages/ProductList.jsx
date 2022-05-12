@@ -42,7 +42,7 @@ function ProductList() {
   //retrieve the category using location
   //console.log(location.pathname.split('/')[2]);
   const category = location.pathname.split('/')[2];
-  const [sort, setSort] = useState("newest")
+  const [sort, setSort] = useState("")
   return (
     <Container>
       <Navbar />
@@ -53,7 +53,7 @@ function ProductList() {
           <Filter>
           <FilterText>Sort Products: </FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
-            <Option value="">Newest</Option>
+            <Option value="newest">Newest</Option>
             <Option value="asc">Price (asc)</Option>
             <Option value="desc">Price (desc)</Option>
           </Select>

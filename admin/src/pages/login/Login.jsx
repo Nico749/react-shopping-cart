@@ -24,7 +24,7 @@ const dispatch = useDispatch()
       <input  type = "text" style = {{padding:"10px", marginBottom:"20px"}}  placeholder='username' onChange={e=>setUsername(e.target.value)} />
       <input  type= "password" placeholder='password' style = {{padding:"10px", marginBottom:"20px"}}  onChange={e=>setPassword(e.target.value)}/>
       <button style ={{cursor:"pointer",padding:"10px",width:"100px",borderRadius:"20px"}} onClick ={handleClick}>Login</button>
-      <button style ={{cursor:"pointer",padding:"10px",width:"100px",borderRadius:"20px"}} onClick ={handleLogout}>Logout</button>
+      {/* <button style ={{cursor:"pointer",padding:"10px",width:"100px",borderRadius:"20px"}} onClick ={handleLogout}>Logout</button> */}
     
     </div>
   )
