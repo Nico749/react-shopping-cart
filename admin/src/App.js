@@ -15,16 +15,16 @@ function App() {
  const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.isAdmin 
   return (
     <Router>
-        <Switch>
-        <Route path="/login">
+         <Switch>
+         <Route path="/login">
             <Login />
           </Route>
-      
-    {  admin && ( <>
-     <Topbar />
+    
+     { admin && <><Topbar />
       <div className="container">
         <Sidebar />
-      
+     
+     
           <Route exact path="/">
             <Home />
           </Route>
@@ -47,9 +47,9 @@ function App() {
             <NewProduct />
           </Route>
          
-      </div>
-      </>)}
-        </Switch>
+      </div></>}
+       </Switch> 
+      
     </Router>
   );
 }

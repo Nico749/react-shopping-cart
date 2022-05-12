@@ -4,7 +4,7 @@ const CryptoJS = require('crypto-js')
 const jwt = require ('jsonwebtoken')
 const User = require ('../models/User')
 
-//api/auth/register
+//api/auth/register (Using cryptojs to encrypt password)
 router.post('/register', async (req, res) => {
       const newUser = new User({
         username: req.body.username,
