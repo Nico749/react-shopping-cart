@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./product.css";
 import Chart from "../../components/chart/Chart"
 import {productData} from "../../dummyData"
 import { Publish } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 
 export default function Product() {
+    const location = useLocation()
+    const prodId=location.pathname.split('/')[2]
+    //find the product using its id
+    const product = useSelector(state=>state.product.products.find(product =>product._id === prodId))
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -14,53 +19,48 @@ export default function Product() {
         </Link>
       </div>
       <div className="productTop">
-          <div className="productTopLeft">
-              <Chart data={productData} dataKey="Sales" title="Sales Performance"/>
-          </div>
-          <div className="productTopRight">
+          
+          {/* <div className="productTopRight">
               <div className="productInfoTop">
-                  <img src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="productInfoImg" />
-                  <span className="productName">Apple Airpods</span>
+                  <img src={product.image} alt="" className="productInfoImg" />
+                  <span className="productName">{product.title}</span>
               </div>
               <div className="productInfoBottom">
                   <div className="productInfoItem">
-                      <span className="productInfoKey">id:</span>
-                      <span className="productInfoValue">123</span>
+                      <span className="productInfoKey">Prod. Id:</span>
+                      <span className="productInfoValue">{product._id}</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">sales:</span>
-                      <span className="productInfoValue">5123</span>
+                      <span className="productInfoKey">Price:</span>
+                      <span className="productInfoValue">{product.price}</span>
                   </div>
+                  
                   <div className="productInfoItem">
-                      <span className="productInfoKey">active:</span>
-                      <span className="productInfoValue">yes</span>
-                  </div>
-                  <div className="productInfoItem">
-                      <span className="productInfoKey">in stock:</span>
-                      <span className="productInfoValue">no</span>
+                      <span className="productInfoKey">Currently in stock:</span>
+                      <span className="productInfoValue">{product.inStock}</span>
                   </div>
               </div>
-          </div>
+          </div> */}
       </div>
       <div className="productBottom">
           <form className="productForm">
               <div className="productFormLeft">
                   <label>Product Name</label>
-                  <input type="text" placeholder="Apple AirPod" />
+                  <input type="text" placeholder={product.title} />
+                  <label>Product Description</label>
+                  <input type="text" placeholder={product.description} />
+                  <label>Product Price</label>
+                  <input type="text" placeholder={product.price} />
                   <label>In Stock</label>
                   <select name="inStock" id="idStock">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
                   </select>
-                  <label>Active</label>
-                  <select name="active" id="active">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                  </select>
+
               </div>
               <div className="productFormRight">
                   <div className="productUpload">
-                      <img src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="productUploadImg" />
+                      <img src={product.image} alt="" className="productUploadImg" />
                       <label for="file">
                           <Publish/>
                       </label>
