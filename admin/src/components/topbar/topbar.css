@@ -17,9 +17,11 @@
   
   .logo {
     font-weight: bold;
-    font-size: 30px;
-    color: darkblue;
+    font-size: 40px;
+    color: rgb(44, 167, 204);
     cursor: pointer;
+    display: flex;
+  
   }
   
   .topRight{
