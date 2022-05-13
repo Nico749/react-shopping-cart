@@ -48,14 +48,18 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
-            <li className="sidebarListItem">
+            <Link to="/newproduct" className="link">
+              <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              Create New Product
             </li>
+            </Link>
+            <Link  to="/newuser" className="link">
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
-              Reports
+              Create User
             </li>
+            </Link>
           </ul>
         </div>
      
