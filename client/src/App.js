@@ -20,13 +20,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/register" element={<Register />} />
         {/* <Route path="/login">{user ? <Navigate to="/" replace /> : <Login />}</Route>
-        <Route path="/register">
-          {user ? <Navigate to="/" /> : <Register />}
-        </Route> */}
+        */}
         <Route path="/login" element={<Login />} />
    
         <Route path="/cart" element={<Cart />} />

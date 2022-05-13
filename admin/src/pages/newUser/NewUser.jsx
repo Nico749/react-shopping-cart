@@ -18,6 +18,7 @@ export default function NewUser() {
     const newUser = {...user}
     console.log(newUser)
     addClient(newUser,dispatch)
+    window.location.assign('/users')
   }
 
   return (

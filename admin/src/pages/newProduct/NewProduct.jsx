@@ -63,6 +63,7 @@ uploadTask.on('state_changed',
       //console.log({...product, image:downloadURL, categories:cat});
       const newProduct = {...product, image:downloadURL, categories:cat}
       addProduct(newProduct,dispatch)
+      window.location.assign('/products')
     });
   }
 );

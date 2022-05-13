@@ -1,7 +1,7 @@
 import "./widgetSm.css";
-import { Visibility } from "@material-ui/icons";
 import {useEffect, useState} from 'react'
 import {userRequest} from '../../requestMethods' 
+
 
 //retrieving existing users
 export default function WidgetSm() {
@@ -25,10 +25,7 @@ export default function WidgetSm() {
             <span className="widgetSmUsername">{user.username}</span>
             <span className="widgetSmUserTitle">{user.mail}</span>
           </div>
-          <button className="widgetSmButton">
-            <Visibility className="widgetSmIcon" />
-            Display
-          </button>
+       
         </li>
        ))}
       </ul>

@@ -1,6 +1,9 @@
 
 import { useState } from "react";
 import styled from "styled-components";
+import {useDispatch} from 'react-redux'
+import { addClient } from "../redux/apiCalls";
+
 
 
 const Container = styled.div`
@@ -64,18 +67,30 @@ const Button = styled.button`
 
 
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [mail, setMail] = useState('')
+
+  const [user,setUser]  =useState({})
+  const dispatch = useDispatch()
+  const handleChange =(e)=>{
+    setUser(prev=>{
+     return{ ...prev, [e.target.name]:e.target.value}
+    })
+  }
+  const handleClick = (e)=>{
+    e.preventDefault()
+    const newUser = {...user}
+    //console.log(newUser)
+    addClient(newUser,dispatch)
+    //window.location.assign('/')
+  }
   return (
     <Container>
       <Wrapper>
         <Title> REGISTER</Title>
         <Form>
-          <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
-          <Input placeholder="mail" onChange={(e) => setMail(e.target.value)}/>
-          <Input placeholder="password" onChange={(e) => setPassword(e.target.value)} />
-          <Button>REGISTER</Button>
+          <Input name="username" type="text"placeholder="username" onChange={handleChange} />
+          <Input name="mail" type="text" placeholder="mail" onChange={handleChange}/>
+          <Input name="password" type="password" placeholder="password" onChange={handleChange} />
+          <Button onClick = {handleClick} >REGISTER</Button>
         
         </Form>
       </Wrapper>
