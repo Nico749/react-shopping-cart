@@ -2,9 +2,19 @@ import React from "react";
 import "./topbar.css";
 import { Settings } from "@material-ui/icons";
 import Auth from "../../utils";
+import { useDispatch } from "react-redux";
+import { userLogout } from "../../redux/apiCalls";
+
 
 
 export default function Topbar() {
+  const dispatch = useDispatch()
+  const handleClick = (e) => {
+    e.preventDefault()
+    userLogout(dispatch)
+
+  };
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -16,7 +26,9 @@ export default function Topbar() {
               Logout
             </a> */}
           <div className="topbarIconContainer">
-            <Settings />
+          <button onClick={handleClick} style={{ padding: 10, width: 100 }}>
+        Logout
+      </button>
           </div>
          
         </div>

@@ -22,7 +22,7 @@ const Login = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
-    >  <h1 style={{ fontWeight:"bold", fontSize:"40px" }}>ADMIN LOG IN </h1>
+    >  <h1 style={{ fontWeight: "bold", fontSize: "40px" }}>ADMIN LOG IN </h1>
       <input
         style={{ padding: 10, marginBottom: 20 }}
         type="text"
@@ -35,7 +35,7 @@ const Login = () => {
         placeholder="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleClick} style={{ padding: 10, width:100 }}>
+      <button onClick={handleClick} style={{ padding: 10, width: 100 }}>
         Login
       </button>
     </div>
