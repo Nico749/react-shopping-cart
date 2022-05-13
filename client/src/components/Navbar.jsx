@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Badge from '@mui/material/Badge';
-import {FaxRounded, ShoppingCartOutlined } from '@mui/icons-material'
+import { ShoppingCartOutlined } from '@mui/icons-material'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
-import Auth from '../utils';
+
 import { userLogout } from '../redux/apiCalls'
 import userSlice from '../redux/userRedux'
+import {totalLogout} from '../redux/apiCalls'
 
 
 
@@ -59,11 +60,12 @@ const Item = styled.div`
 const Navbar = () => {
 
   const dispatch = useDispatch()
-  const user=useSelector((state)=>state.user.currentUser)
+  //const user=useSelector((state)=>state.user.currentUser)
 
     const handleLogout =(e)=>{
       e.preventDefault()
-      userLogout(dispatch)
+      //userLogout(dispatch)
+    // totalLogout(dispatch)
   }
  
 

@@ -20,10 +20,10 @@
 // };
 
 import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
-
 import { publicRequest } from "../requestMethods";
 import {  addClientFailure,addClientStart,addClientSuccess
  } from "./clientRedux";
+import { cartLogout } from "./cartRedux";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -34,10 +34,14 @@ export const login = async (dispatch, user) => {
     dispatch(loginFailure());
   }
 };
-export const userLogout = async (dispatch, user) =>{
-  dispatch(logout())
+export const userLogout = async (dispatch) =>{
+  dispatch(logout)
   
 }
+
+// export const totalLogout = async (dispatch) =>{
+//   dispatch(cartLogout)
+// }
 
 export const addClient = async (user, dispatch) => {
   dispatch(addClientStart());

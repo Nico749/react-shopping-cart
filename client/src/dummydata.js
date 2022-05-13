@@ -3,17 +3,17 @@ export const sliderItems = [
         id:1,
         img:"https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
         title:"Start in the right way!  ",
-        desc:"SOME RANDOM DESC OF AN ITEM 1 YOU CAN BUY"
+        desc:"SOME RANDOM DESC OF AN ITEM "
     },{
         id:2,
         img: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMHNob3B8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
         title:"Stay healthy",
-        desc:"SOME RANDOM DESC OF AN ITEM 2 YOU CAN BUY"
+        desc:"SOME RANDOM DESC OF AN ITEM "
     },{
         id:3,
         img:"https://images.unsplash.com/photo-1567042661848-7161ce446f85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmFrZXJ5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         title:"Made with love",
-        desc:"SOME RANDOM DESC OF AN ITEM 3 YOU CAN BUY"
+        desc:"SOME RANDOM DESC OF AN ITEM "
     }
 ]
 

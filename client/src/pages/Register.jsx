@@ -3,6 +3,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import {useDispatch} from 'react-redux'
 import { addClient } from "../redux/apiCalls";
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -91,7 +93,8 @@ const Register = () => {
           <Input name="mail" type="text" placeholder="mail" onChange={handleChange}/>
           <Input name="password" type="password" placeholder="password" onChange={handleChange} />
           <Button onClick = {handleClick} >REGISTER</Button>
-        
+          Already have an account? <Link to ='/login'>Login here</Link>
+     
         </Form>
       </Wrapper>
     </Container>

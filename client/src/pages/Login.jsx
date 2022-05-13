@@ -63,7 +63,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
   &:disabled{
-    color:green;
+    color:grey;
     cursor:not-allowed;
   }
  
@@ -81,6 +81,7 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
+    
   };
   return (
     <Container>
@@ -99,7 +100,8 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-          {error && <Error>Something went wrong...</Error>}
+          {error && <Error>Wrong Password or Mail!</Error>}
+          Not a member? <Link to ='/register'>Register here</Link>
      
         </Form>
       </Wrapper>

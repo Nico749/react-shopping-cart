@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { removeProduct } from '../redux/cartRedux';
+
 
 const stripePKey = "pk_test_51KtMKTKEPl7cx7LLlNeT4ue0O4TTFPRVjhIr5T5Hu7WCK7MYlBx6b4y4esCNs04nym36jIDEmqDTz2c1GVitaWeN009SFpfAkB"
 
@@ -159,7 +162,11 @@ const Button = styled.button`
 
 const Cart = () => {
 
+
   const cart = useSelector(state=>state.cart)
+  const [product,setProduct] = useState({})
+  const [quantity,setQuantity] = useState(1)
+  const dispatch = useDispatch()
   const [stripeToken, setStripeToken] = useState(null)
   const onToken = (token) =>{
     setStripeToken(token)
@@ -182,6 +189,11 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
     }
     stripeToken && paymentRequest()
   }, [stripeToken, cart.total])
+
+  // const handleCart =(product) =>{
+  //   dispatch(removeProduct({product}))
+  //  }
+
   return (
     <Container>
       <Navbar />
@@ -195,18 +207,6 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
           <TopTexts>
             <TopText>You have {cart.quantity} items in your cart </TopText>
           </TopTexts>
-          {/* <StripeCheckout
-              name="Nico's"
-             
-              billingAddress
-              shippingAddress
-              description={`Your total is $${cart.total}`}
-              amount={cart.total * 100} 
-              token={onToken}
-              stripeKey={stripePKey}
-            >
-              <TopButton>CHECKOUT NOW</TopButton>
-            </StripeCheckout> */}
         </Top>
         <Bottom>
           <Info>
@@ -230,11 +230,10 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
                   
                 </Details>
               </ProductDetail>
-              <PriceDetail>
+              <PriceDetail> 
+                {/* <Button onClick={handleCart} style={{width:"150px" , backgroundColor:"Red", borderRadius:"40px", border:"none", cursor:"pointer"}}>REMOVE FROM CART</Button> */}
                   <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <ProductAmount>Qty: {product.quantity}</ProductAmount>
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
@@ -258,7 +257,7 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <StripeCheckout
+          <StripeCheckout
               name="Nico's"
              
               billingAddress
@@ -269,6 +268,7 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
               stripeKey={stripePKey}
             >
               <Button>CHECKOUT NOW</Button>
+              
             </StripeCheckout>
           </Summary>
         </Bottom>
