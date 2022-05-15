@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { userLogout } from '../redux/apiCalls'
 import userSlice from '../redux/userRedux'
-import {totalLogout} from '../redux/apiCalls'
+
 
 
 
@@ -64,8 +64,9 @@ const Navbar = () => {
 
     const handleLogout =(e)=>{
       e.preventDefault()
-      //userLogout(dispatch)
-    // totalLogout(dispatch)
+   
+      userLogout(dispatch)
+   //console.log('hello')
   }
  
 

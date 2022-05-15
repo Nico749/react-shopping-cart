@@ -35,7 +35,7 @@ export const login = async (dispatch, user) => {
   }
 };
 export const userLogout = async (dispatch) =>{
-  dispatch(logout)
+  dispatch(logout())
   
 }
 

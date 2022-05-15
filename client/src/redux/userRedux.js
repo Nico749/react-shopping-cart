@@ -14,6 +14,7 @@ const userSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
+      localStorage.setItem('user', JSON.stringify(state.currentUser.username));
       window.location.assign('/');
     },
     loginFailure: (state) => {
@@ -22,8 +23,9 @@ const userSlice = createSlice({
     },
     
     logout:(state) =>{
+      localStorage.removeItem('user');
       state.currentUser = null
-      window.location.assign('/');
+      //window.location.assign('/');
 
     },
   },
