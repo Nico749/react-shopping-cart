@@ -1,29 +1,9 @@
-// import { loginFailure, loginStart, loginSuccess } from "./userRedux";
-// import { publicRequest } from "../requestMethods";
-
-// export const login = async (dispatch, user) => {
-//   dispatch(loginStart());
-//   try {
-//     const res = await publicRequest.post( {
-//         headers: {            
-//            'Access-Control-Allow-Origin':'*',
-//            'Access-Control-Allow-Methods': 'POST',
-//            'Access-Control-Allow-Headers':'*',
-//            'cache-control': 'no-cache'
-//          },
-//          url:"/auth/login"}, user)
-//     dispatch(loginSuccess(res.data));
-//     console.log("logged")
-//   } catch (err) {
-//     dispatch(loginFailure("Log in failed"));
-//   }
-// };
-
-import { loginFailure, loginStart, loginSuccess, logout, registerFailure, registerStart, registerSuccess } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
 import { publicRequest } from "../requestMethods";
 import {  addClientFailure,addClientStart,addClientSuccess
  } from "./clientRedux";
-import { cartLogout } from "./cartRedux";
+
+ //login, register and logout api
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -39,10 +19,6 @@ export const userLogout = async (dispatch) =>{
   
 }
 
-// export const totalLogout = async (dispatch) =>{
-//   dispatch(cartLogout)
-// }
-
 export const addClient = async (user, dispatch) => {
   dispatch(addClientStart());
   try {
@@ -52,13 +28,3 @@ export const addClient = async (user, dispatch) => {
     dispatch(addClientFailure());
   }
 }
-
-export const register = async (dispatch, user) => {
-  dispatch(registerStart());
-  try {
-    const res = await publicRequest.post("/auth/login", user);
-    dispatch(registerSuccess(res.data));
-  } catch (err) {
-    dispatch(registerFailure());
-  }
-};

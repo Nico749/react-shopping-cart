@@ -5,8 +5,6 @@ import { useState } from "react";
 import { login } from "../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -100,7 +98,7 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-          {/* {error && <Error>Wrong Password or Mail!</Error>}  */}
+           {/* {error && <Error>Wrong Password or Mail!</Error>}   */}
           Not a member? <Link to ='/register'>Register here</Link>
      
         </Form>

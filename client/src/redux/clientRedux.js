@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const clientSlice = createSlice({
     name: "client",
     initialState: {
-        clients: [],
+        currentUser:null,
         isFetching: false,
         error: false,
     },
@@ -16,8 +16,9 @@ export const clientSlice = createSlice({
           addClientSuccess: (state, action) => {
             state.isFetching = false
             state.clients.push(action.payload)
+            //window.location.assign('/');
             localStorage.setItem('user', JSON.stringify(state.currentUser.username));
-            window.location.assign('/');
+            
             
         },
           addClientFailure: (state) => {

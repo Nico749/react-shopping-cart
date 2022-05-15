@@ -8,10 +8,6 @@ import { Link } from 'react-router-dom';
 import { userLogout } from '../redux/apiCalls'
 import userSlice from '../redux/userRedux'
 
-
-
-
-
 //creating styled components
 const Container = styled.div`
   height: 120px;
