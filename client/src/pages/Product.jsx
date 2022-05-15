@@ -120,6 +120,7 @@ const Product = () => {
   //update cart
   //calling the product action and passing price and quantity as payload
   const handleCart =() =>{
+    //localStorage.setItem('cart',quantity)
    dispatch(addProduct({...product, quantity}))
   }
   

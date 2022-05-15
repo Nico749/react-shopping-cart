@@ -24,8 +24,9 @@ const userSlice = createSlice({
     
     logout:(state) =>{
       localStorage.removeItem('user');
+      localStorage.removeItem('cart')
       state.currentUser = null
-      //window.location.assign('/');
+      window.location.assign('/');
 
     },
   },

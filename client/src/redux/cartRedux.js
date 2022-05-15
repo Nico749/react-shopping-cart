@@ -11,6 +11,8 @@ const cartSlice = createSlice({
     reducers:{
         addProduct:(state, action) =>{
             state.quantity +=1 //this is the cart quantity
+            localStorage.setItem('cart',state.quantity)
+    
             state.products.push(action.payload)
             state.total +=action.payload.price*action.payload.quantity //this is the quantity of a single item 
             
