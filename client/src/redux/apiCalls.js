@@ -19,7 +19,7 @@
 //   }
 // };
 
-import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, logout, registerFailure, registerStart, registerSuccess } from "./userRedux";
 import { publicRequest } from "../requestMethods";
 import {  addClientFailure,addClientStart,addClientSuccess
  } from "./clientRedux";
@@ -52,3 +52,13 @@ export const addClient = async (user, dispatch) => {
     dispatch(addClientFailure());
   }
 }
+
+export const register = async (dispatch, user) => {
+  dispatch(registerStart());
+  try {
+    const res = await publicRequest.post("/auth/login", user);
+    dispatch(registerSuccess(res.data));
+  } catch (err) {
+    dispatch(registerFailure());
+  }
+};

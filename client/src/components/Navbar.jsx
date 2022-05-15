@@ -59,195 +59,82 @@ const Item = styled.div`
 function Navbar() {
 
   const dispatch = useDispatch()
-   const user=useSelector((state)=>state.user.currentUser)
+  const user = useSelector((state) => state.user.currentUser)
 
-     const handleLogout =(e)=>{
-      e.preventDefault()
-   
-      userLogout(dispatch)    
-    
- }
- 
+  const handleLogout = (e) => {
+    e.preventDefault()
+    userLogout(dispatch)
+  }
 
-//return cart properties, we need only the quantity
-const cartQuantity = useSelector(state=>state.cart.quantity)
+  //return cart properties, we need only the quantity
+  const cartQuantity = useSelector(state => state.cart.quantity)
 
   function showNavigation() {
     if (localStorage.getItem('user')) {
       return (
-
-<Container>
-        <Wrapper>
-        <Left>
-
-     </Left>
-          <Center>             <Logo>NICO'S SHOP</Logo>
-           </Center>
-          <Right>
-      
-           <a href="/" onClick={handleLogout}>
-              Logout
+        <Container>
+          <Wrapper>
+            <Left>
+            </Left>
+            <Center>
+              <Logo>NICO'S SHOP</Logo>
+            </Center>
+            <Right>
+              <Item>Welcome {JSON.parse(localStorage.getItem('user'))}!</Item>
+              <a style={{ textDecoration: 'none', color: 'black' }} href="/" onClick={handleLogout}>
+                <Item>LOGOUT</Item>
               </a>
-           {/* <Link to ='/register' style={{ textDecoration: 'none', color:'black' }}>
-             <Item>REGISTER</Item>
-           </Link>
-           <Link to ='/login' style={{ textDecoration: 'none', color:'black' }}>
-           <Item>LOG IN</Item>
-           </Link> */}
-           <Link to ="/cart">
-             {/* <Item><Badge badgeContent={cartQuantity} color="primary"> */}
-             <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
-               <ShoppingCartOutlined
-                 color="action" />
-             </Badge></Item>
-           </Link>
-         </Right>   
-         </Wrapper>
-    
-     </Container>
-  )
+              <Link to="/cart">
+                {/* <Item><Badge badgeContent={cartQuantity} color="primary"> */}
+                <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
+                  <ShoppingCartOutlined
+                    color="action" />
+                </Badge></Item>
+              </Link>
+            </Right>
+          </Wrapper>
+        </Container>
+      )
 
-      //   <ul className="flex-row">
-      //     <li className="mx-1">
-      //       <Link to="/orderHistory">
-      //         Order History
-      //       </Link>
-      //     </li>
-      //     <li className="mx-1">
-      //       {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-      //       {/* <a href="/" onClick={() => Auth.logout()}> */}
-      //         Logout
-      //      {/* ?\ </a> */}
-      //     </li>
-      //   </ul>
-      // );
     } else {
       return (
 
         <Container>
-                 <Wrapper>
-                   <Left>
-                  
-                   </Left>
-                   <Center>
-                     <Logo>NICO'S SHOP</Logo>
-                   </Center>
-                   <Right>
-                  
-                   {/* <a href="/" onClick={handleLogout}>
-                      Logout
-                     </a> */}
-                   <Link to ='/register' style={{ textDecoration: 'none', color:'black' }}>
-                     <Item>REGISTER</Item>
-                   </Link>
-                   <Link to ='/login' style={{ textDecoration: 'none', color:'black' }}>
-                  <Item>LOG IN</Item>
-                   </Link>
-                   <Link to ="/cart">
-                     <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
-                       <ShoppingCartOutlined
-                         color="action" />
-                     </Badge></Item>
-                   </Link>
-                 </Right>   
-                 </Wrapper>
-            
-             </Container>
-           )
+          <Wrapper>
+            <Left>
+            </Left>
+            <Center>
+              <Logo>NICO'S SHOP</Logo>
+            </Center>
+            <Right>
+              <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}>
+                <Item>REGISTER</Item>
+              </Link>
+              <Link to='/login' style={{ textDecoration: 'none', color: 'black' }}>
+                <Item>LOG IN</Item>
+              </Link>
+              <Link to="/cart">
+                <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
+                  <ShoppingCartOutlined
+                    color="action" />
+                </Badge></Item>
+              </Link>
+            </Right>
+          </Wrapper>
 
-      //   <ul className="flex-row">
-      //     <li className="mx-1">
-      //       <Link to="/signup">
-      //         Signup
-      //       </Link>
-      //     </li>
-      //     <li className="mx-1">
-      //       <Link to="/login">
-      //         Login
-      //       </Link>
-      //     </li>
-      //   </ul>
-      // );
+        </Container>
+      )
+
     }
   }
 
   return (
-    
-
-    // <Container>
-    //     <Wrapper>
-    //       <Left>
-    //         {/* 
-    //         <SearchContainer>
-    //            <Input></Input> 
-    //            <Search style={{color:"grey", fontSize:"16px"}}/>
-    //         </SearchContainer> */}
-    //       </Left>
-    //       <Center>
-    //         <Logo>NICO'S SHOP</Logo>
-    //       </Center>
-    //       <Right>
-              <Container> {showNavigation()} </Container>
-         
-    //       <Link to ="/cart">
-    //         <Item><Badge badgeContent={cartQuantity} color="primary">
-    //           <ShoppingCartOutlined
-    //             color="action" />
-    //         </Badge></Item>
-    //       </Link>
-    //     </Right>   
-    //     </Wrapper>
-    
-    // </Container>
+    <Container> {showNavigation()} </Container>
 
   );
 }
 
 
-// const Navbar = () => {
 
-//   const dispatch = useDispatch()
-//   //const user=useSelector((state)=>state.user.currentUser)
-
-//     const handleLogout =(e)=>{
-//       e.preventDefault()
-   
-//       userLogout(dispatch)
-//    //console.log('hello')
-//   }
- 
-
-//   //return cart properties, we need only the quantity
-//   const cartQuantity = useSelector(state=>state.cart.quantity)
-
-//   return (
-
-//     <Container>
-//         <Wrapper>
-//           <Left>
-//             {/* 
-//             <SearchContainer>
-//                <Input></Input> 
-//                <Search style={{color:"grey", fontSize:"16px"}}/>
-//             </SearchContainer> */}
-//           </Left>
-//           <Center>
-//             <Logo>NICO'S SHOP</Logo>
-//           </Center>
-//           <Right>
-            //  <nav >  {showNavigation()} </nav> 
-//          
-//           <Link to ="/cart">
-//             <Item><Badge badgeContent={cartQuantity} color="primary">
-//               <ShoppingCartOutlined
-//                 color="action" />
-//             </Badge></Item>
-//           </Link>
-//         </Right>   
-//         </Wrapper>
-    
-//     </Container>
-//   )
-// }
 
 export default Navbar
