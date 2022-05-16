@@ -28,7 +28,7 @@ export const productSlice = createSlice({
         },
           deleteProductSuccess: (state, action) => {
             state.isFetching = false
-            //splice is only available with redux/toolkit, we remove the product whose id matches with our specific product
+            // remove the product whose id matches with our specific product
             state.products.splice(
                 state.products.findIndex((item) => item._id === action.payload),1
             )

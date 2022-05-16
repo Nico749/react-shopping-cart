@@ -16,9 +16,9 @@ export const login = async (dispatch, user) => {
     dispatch(loginFailure());
   }
 };
-export const userLogout = async (dispatch, user) =>{
+export const userLogout = async (dispatch, user) => {
   dispatch(logout())
-  
+
 }
 
 //public request because you don't need to be admin to retrieve products
@@ -42,11 +42,11 @@ export const deleteProduct = async (id, dispatch) => {
   }
 };
 
-export const updateProduct = async (id,product, dispatch) => {
+export const updateProduct = async (id, product, dispatch) => {
   dispatch(updateProductStart());
   try {
     const res = await userRequest.update(`/products/${id}`);
-    dispatch(updateProductSuccess({id:id, product:product}));
+    dispatch(updateProductSuccess({ id: id, product: product }));
   } catch (err) {
     dispatch(updateProductFailure());
   }
@@ -56,7 +56,7 @@ export const updateProduct = async (id,product, dispatch) => {
 export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
   try {
-    const res = await userRequest.post(`/products/`,product);
+    const res = await userRequest.post(`/products/`, product);
     dispatch(addProductSuccess(res.data));
   } catch (err) {
     dispatch(addProductFailure());
@@ -85,11 +85,11 @@ export const deleteClient = async (id, dispatch) => {
   }
 };
 
-export const updateClient = async (id,product, dispatch) => {
+export const updateClient = async (id, product, dispatch) => {
   dispatch(updateClientStart());
   try {
     const res = await userRequest.update(`/users/${id}`);
-    dispatch(updateClientSuccess({id:id, product:product}));
+    dispatch(updateClientSuccess({ id: id, product: product }));
   } catch (err) {
     dispatch(updateClientFailure());
   }
@@ -99,7 +99,7 @@ export const updateClient = async (id,product, dispatch) => {
 export const addClient = async (user, dispatch) => {
   dispatch(addClientStart());
   try {
-    const res = await userRequest.post(`/auth/register`,user);
+    const res = await userRequest.post(`/auth/register`, user);
     dispatch(addClientSuccess(res.data));
   } catch (err) {
     dispatch(addClientFailure());

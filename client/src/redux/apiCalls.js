@@ -14,15 +14,15 @@ export const login = async (dispatch, user) => {
     dispatch(loginFailure());
   }
 };
-export const userLogout = async (dispatch) =>{
+export const userLogout = async (dispatch) => {
   dispatch(logout())
-  
+
 }
 
 export const addClient = async (user, dispatch) => {
   dispatch(addClientStart());
   try {
-    const res = await publicRequest.post(`/auth/register`,user);
+    const res = await publicRequest.post(`/auth/register`, user);
     dispatch(addClientSuccess(res.data));
   } catch (err) {
     dispatch(addClientFailure());

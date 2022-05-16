@@ -56,25 +56,3 @@ export const categories = [
     }
 ]
 
-export const popularProducts = [
-    {
-      id:1,
-      img:"https://images.unsplash.com/photo-1617884638394-d9eef1b0f40e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2FsYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id:2,
-      img:"https://images.unsplash.com/photo-1600718374662-0483d2b9da44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvZ2h1cnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id:3,
-      img:"https://images.unsplash.com/photo-1592457765434-70aacc2da743?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0cmF3YmVycnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id:4,
-      img:"https://images.unsplash.com/photo-1601312540037-095ace539abb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFuYW5hJTIwYnJlYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id:5,
-      img:"https://images.unsplash.com/photo-1571750007475-09cc42b58613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2VyZWFsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    }
-  ]

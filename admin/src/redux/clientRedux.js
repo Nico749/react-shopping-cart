@@ -28,7 +28,7 @@ export const clientSlice = createSlice({
         },
           deleteClientSuccess: (state, action) => {
             state.isFetching = false
-            //splice is only available with redux/toolkit, we remove the client whose id matches with our specific client
+            //we remove the client whose id matches with our specific client
             state.clients.splice(
                 state.clients.findIndex((item) => item._id === action.payload),1
             )

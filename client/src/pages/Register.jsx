@@ -1,12 +1,8 @@
-
 import { useState } from "react";
 import styled from "styled-components";
 import {useDispatch} from 'react-redux'
 import { addClient } from "../redux/apiCalls";
 import { Link } from 'react-router-dom';
-import { login } from "../redux/apiCalls";
-
-
 
 
 const Container = styled.div`
@@ -72,26 +68,21 @@ const Button = styled.button`
 const Register = () => {
 
   const [user,setUser]  =useState({})
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  //const [username, setUsername] = useState("");
+  //const [password, setPassword] = useState("");
   const dispatch = useDispatch()
   const handleChange =(e)=>{
     setUser(prev=>{
      return{ ...prev, [e.target.name]:e.target.value}
     })
-   // setPassword()
-   // setUsername()
   }
   const handleClick = (e)=>{
     e.preventDefault()
     const newUser = {...user}
-    console.log(newUser)
-    //setUsername(newUser.username)
-    //setPassword(newUser.password)
+    //console.log(newUser)
     addClient(newUser,dispatch)
     //login(dispatch, { username, password });
     
-    //window.location.assign('/')
   }
   return (
     <Container>

@@ -1,8 +1,7 @@
-import { Add, Remove } from '@mui/icons-material'
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout'
 import { useEffect, useState } from 'react';
@@ -158,35 +157,31 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
 `;
- 
+
 
 const Cart = () => {
 
 
-  const cart = useSelector(state=>state.cart)
-  const [product,setProduct] = useState({})
-  const [quantity,setQuantity] = useState(1)
+  const cart = useSelector(state => state.cart)
+  const [product, setProduct] = useState({})
+  const [quantity, setQuantity] = useState(1)
   const dispatch = useDispatch()
   const [stripeToken, setStripeToken] = useState(null)
-  const onToken = (token) =>{
+  const onToken = (token) => {
     setStripeToken(token)
   }
   //console.log(stripeToken)
-//const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZkYjk3ZDJiYTliYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjA3NTkzMiwiZXhwIjoxNjUyMDgzMTMyfQ.Lx4R4l5P1z7ozlQ7Pfk3VoXkznGL-kgzW1HdYst9Plw"
-const TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).accessToken  
-useEffect(()=>{
-    const paymentRequest = async ()=>{
-      try{
+  
+  const TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).accessToken
+  useEffect(() => {
+    const paymentRequest = async () => {
+      try {
         const res = await axios.post("http://localhost:5000/api/products",
-          {header: {token:`Bearer ${TOKEN}`}}, 
-          //{
-          // tokenId: stripeToken.id, 
-          // amount: 500,
-        //}
+          { header: { token: `Bearer ${TOKEN}` } },
+         
         );
-     //console.log(res)
       }
-      catch{}
+      catch { }
     }
     stripeToken && paymentRequest()
   }, [stripeToken, cart.total])
@@ -198,38 +193,38 @@ useEffect(()=>{
   return (
     <Container>
       <Navbar />
-      
+
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <Link to ="/">
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <Link to="/">
+            <TopButton>CONTINUE SHOPPING</TopButton>
           </Link>
           <TopTexts>
             <TopText>You have {cart.quantity} items in your cart </TopText>
           </TopTexts>
         </Top>
         <Bottom>
-          <Info>          
-             {cart.products.map((product) => (
-          <Product>
-              <ProductDetail>
-                <Image src={product.image} />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> {product.title}
-                  </ProductName>
-                  <ProductDesc>
-                    <b>Description:</b> {product.description}
-                  </ProductDesc>
-                  <ProductId>
-                    <b>ID:</b> {product._id}
-                  </ProductId>
-                  
-                </Details>
-              </ProductDetail>
-              <PriceDetail> 
-                {/* <Button onClick={handleCart} style={{width:"150px" , backgroundColor:"Red", borderRadius:"40px", border:"none", cursor:"pointer"}}>REMOVE FROM CART</Button> */}
+          <Info>
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetail>
+                  <Image src={product.image} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductDesc>
+                      <b>Description:</b> {product.description}
+                    </ProductDesc>
+                    <ProductId>
+                      <b>ID:</b> {product._id}
+                    </ProductId>
+
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  {/* <Button onClick={handleCart} style={{width:"150px" , backgroundColor:"Red", borderRadius:"40px", border:"none", cursor:"pointer"}}>REMOVE FROM CART</Button> */}
                   <ProductAmountContainer>
                     <ProductAmount>Qty: {product.quantity}</ProductAmount>
                   </ProductAmountContainer>
@@ -237,9 +232,8 @@ useEffect(()=>{
                     $ {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
-               
-            </Product>
-            
+              </Product>
+
             ))}
 
           </Info>
@@ -249,24 +243,20 @@ useEffect(()=>{
               <SummaryItemText>Subtotal</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-           
-          
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-          <StripeCheckout
+            <StripeCheckout
               name="Nico's"
-             
               billingAddress
               shippingAddress
               description={`Your total is $${cart.total}`}
-              amount={cart.total * 100} 
+              amount={cart.total * 100}
               token={onToken}
               stripeKey={stripePKey}
             >
               <Button>CHECKOUT NOW</Button>
-              
             </StripeCheckout>
           </Summary>
         </Bottom>
