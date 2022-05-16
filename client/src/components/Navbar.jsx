@@ -4,9 +4,8 @@ import Badge from '@mui/material/Badge';
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
-
 import { userLogout } from '../redux/apiCalls'
-import userSlice from '../redux/userRedux'
+
 
 //creating styled components
 const Container = styled.div`

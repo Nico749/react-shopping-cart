@@ -100,8 +100,7 @@ uploadTask.on('state_changed',
          <option value ="true">Yes</option>
          <option value ="false">No</option>
        </select>
-        </div>
-       
+        </div>       
         <button onClick = {handleClick} className="addProductButton">Create</button>
       </form>
     </div>

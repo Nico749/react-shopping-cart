@@ -98,7 +98,7 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-           {/* {error && <Error>Wrong Password or Mail!</Error>}   */}
+            {/* {error? <Error>Wrong username or password </Error>  : null}  */}
           Not a member? <Link to ='/register'>Register here</Link>
      
         </Form>

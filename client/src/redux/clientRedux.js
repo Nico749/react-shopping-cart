@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//register a new user
 export const clientSlice = createSlice({
     name: "client",
     initialState: {

@@ -172,8 +172,9 @@ const Cart = () => {
     setStripeToken(token)
   }
   //console.log(stripeToken)
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZkYjk3ZDJiYTliYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjA3NTkzMiwiZXhwIjoxNjUyMDgzMTMyfQ.Lx4R4l5P1z7ozlQ7Pfk3VoXkznGL-kgzW1HdYst9Plw"
-  useEffect(()=>{
+//const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZkYjk3ZDJiYTliYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjA3NTkzMiwiZXhwIjoxNjUyMDgzMTMyfQ.Lx4R4l5P1z7ozlQ7Pfk3VoXkznGL-kgzW1HdYst9Plw"
+const TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).accessToken  
+useEffect(()=>{
     const paymentRequest = async ()=>{
       try{
         const res = await axios.post("http://localhost:5000/api/products",
@@ -183,7 +184,7 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
           // amount: 500,
         //}
         );
-     console.log(res)
+     //console.log(res)
       }
       catch{}
     }
@@ -209,11 +210,8 @@ const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzM3OGU0MjY1ZmZk
           </TopTexts>
         </Top>
         <Bottom>
-          <Info>
-            
-            
-
-            {cart.products.map((product) => (
+          <Info>          
+             {cart.products.map((product) => (
           <Product>
               <ProductDetail>
                 <Image src={product.image} />

@@ -27,7 +27,8 @@ const Left = styled.div`
 const Logo = styled.h1``;
 
 const Desc = styled.p`
-  margin: 20px 0px;
+  margin: 20px 20px;
+  
 `;
 
 const SocialContainer = styled.div`
@@ -92,7 +93,7 @@ const Footer = () => {
       <Left>
         <Logo>NICO'S SHOP</Logo>
         <Desc>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quisquam adipisci. Illo tenetur accusamus beatae fugiat dicta aperiam numquam veritatis?
+          Follow us on
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">

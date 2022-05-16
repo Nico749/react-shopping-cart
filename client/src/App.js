@@ -9,14 +9,12 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
-  Navigate
+ 
 } from "react-router-dom"
 
-import { useSelector } from 'react-redux';
 
 function App() {
-  //const user=useSelector((state)=>state.user.currentUser)
+
   return (
     <BrowserRouter>
       <Routes>
@@ -24,10 +22,7 @@ function App() {
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/login">{user ? <Navigate to="/" replace /> : <Login />}</Route>
-        */}
         <Route path="/login" element={<Login />} />
-   
         <Route path="/cart" element={<Cart />} />
         {/* no match route */}
         <Route path="*" element={

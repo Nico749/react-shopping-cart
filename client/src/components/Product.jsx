@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 
+
+
 //display the icons in the middle of the image 
 const Info = styled.div`
   opacity: 0;
@@ -35,14 +37,6 @@ const Container = styled.div`
   }
 `;
 
-//CIRCLE INSIDE THE IMAGE   
-// const Circle = styled.div`
-//   width: 100px;
-//   height: 100px;
-//   border-radius: 50%;
-//   background-color: white;
-//   position: absolute;
-// `;
 
 const Image = styled.img`
   height: 90%;
@@ -73,9 +67,6 @@ const Product = ({ item }) => {
     
       <Image src = {item.image} alt = "COMING SOON"/>
       <Info>
-        {/* <Icon>
-          <ShoppingCartOutlined   />
-        </Icon> */}
         <Icon>
           <Link to ={`/product/${item._id}`}>
           <SearchOutlined />

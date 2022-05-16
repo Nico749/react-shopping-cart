@@ -1,12 +1,9 @@
-import { LineAxisOutlined } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { popularProducts } from "../dummydata";
 import Product from "./Product";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-// const cors = require ('cors')
 
 const Container = styled.div`
     padding: 10px;
@@ -20,7 +17,6 @@ const Products = ({cat,sort}) => {
   //console.log(category)
 
   const [products,setProducts] = useState([])
-  //const [filteredP,setFilteredP] = useState([])
 
   //get products, if there is a category retrieves only few of them otherwise all of them
   useEffect(() => {
@@ -34,15 +30,8 @@ const Products = ({cat,sort}) => {
     }
     getProducts()
   },[cat,category])
-//console.log(products)
 
-// useEffect(()=>{
-//   cat && setFilteredP(
-//     products.map((item) => {products.push(item)})
-//   )
-// },[products,cat])
 
-//console.log(filteredP);
 useEffect(()=>{
   if (sort === "") {
     //take prev version of products and sort
