@@ -9,7 +9,7 @@ export default function Sidebar() {
   const handleClick = (e) => {
     e.preventDefault()
 
-    //userLogout(dispatch)
+    userLogout(dispatch)
 
   };
   return (

@@ -13,16 +13,20 @@ const userSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;
-      state.currentUser = action.payload;
+      state.currentUser = action.payload; 
       window.location.assign('/');
-
+      
+      
     },
     loginFailure: (state) => {
       state.isFetching = false;
       state.error = true;
+     
     },
     logout: (state) => {
-      state.currentUser = null;
+      localStorage.removeItem('user');
+
+      //state.currentUser = null;
       window.location.assign('/login');
     },
   },
