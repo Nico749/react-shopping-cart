@@ -12,7 +12,7 @@
 
 ## General info
 
-The application is an ecommerce website. It is splitetd in 2 main areas: user and admin. On the user side, an user can log in if already an user or create a new profile and then search for products and add them to a cart; on the admin, an user can access only if admin and then he can directly manage products and users by adding or deleting them.
+The application is an ecommerce website. It is dividedd in 2 main areas: user and admin. On the user side, an user can log in if already an user or create a new profile and then search for products and add them to a cart; on the admin, an user can access only if admin and then he can directly manage products and users by adding or deleting them.
 
 ## Technologies
 
