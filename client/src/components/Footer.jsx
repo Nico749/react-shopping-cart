@@ -67,8 +67,12 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  width: 50%;
-  margin-bottom: 10px;
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+  
 `;
 
 const Right = styled.div`
@@ -111,14 +115,15 @@ const Footer = () => {
       <Center>
         <Title>Useful Links</Title>
         <List>
+          <Link style={{textDecoration:"none",color:"black",cursor:"pointer" ,margin:"20px", border:"2px solid black", borderRadius:"50px", width:"120px"}} to ="/admin">
           <ListItem>Admin Portal</ListItem>
-          <Link style={{textDecoration:"none",color:"black",cursor:"pointer"}} to ="/cart">
+          </Link>
+          <Link style={{textDecoration:"none",color:"black",cursor:"pointer", margin:"20px", border:"2px solid black", borderRadius:"50px", width:"120px"}} to ="/cart">
           <ListItem>Cart</ListItem>
           </Link>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
+          {/* <ListItem>My Account</ListItem>
           <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
+          <ListItem>Terms</ListItem> */}
         </List>
       </Center>
       <Right>

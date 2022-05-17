@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Product from './pages/Product';
 import ProductList from './pages/ProductList';
+import AdminLogin from './pages/AdminLogin';
 import {
   BrowserRouter,
   Routes,
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/admin" element={<AdminLogin />} />
         {/* no match route */}
         <Route path="*" element={
           <main style={{ padding: "1rem" }}>
