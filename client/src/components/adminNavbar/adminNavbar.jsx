@@ -33,7 +33,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           className={`navbar-menu ${isActive ? "is-active" : ""}`}
         >
           <div className="navbar-start">
-            <ul ><li >
+            <ul ><li className='adminLi' >
             <a onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#home"
               onClick={() => handlePageChange('Home')}
@@ -42,7 +42,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           : 'nav-link'  `}
             >
               Home
-            </a></li><li >
+            </a></li><li className='adminLi'>
             <a onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#products"
               onClick={() => handlePageChange('AdminProducts')}
@@ -51,7 +51,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           : 'nav-link'`}
             >
               Products
-            </a></li><li >
+            </a></li><li className='adminLi'>
             <a onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#users"
               onClick={() => handlePageChange('Users')}
@@ -60,7 +60,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           : 'nav-link'`}
             >
               Users
-            </a></li><li >
+            </a></li><li className='adminLi'>
             <a onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#recipes"
               onClick={() => handlePageChange('Recipes')}
@@ -70,6 +70,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             >
               Recipes
             </a></li>
+           
             </ul>
           </div>
         </div>

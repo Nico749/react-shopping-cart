@@ -2,7 +2,9 @@ import { loginFailure, loginStart, loginSuccess, logout, adminloginFailure, admi
 import { publicRequest } from "../requestMethods";
 import {  addClientFailure,addClientStart,addClientSuccess
  } from "./clientRedux";
-import { getProductFailure, getProductSuccess, getProductStart } from "./productRedux";
+ import { getProductStart,getProductFailure,getProductSuccess, deleteProductFailure,deleteProductStart,deleteProductSuccess,
+  updateProductFailure,updateProductSuccess,updateProductStart, addProductFailure,addProductStart,addProductSuccess
+ } from "./productRedux";
 
  //login, register and logout api
 
@@ -49,5 +51,16 @@ export const getProducts = async (dispatch) => {
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
+  }
+};
+
+//we need to be admin to delete a product
+export const deleteProduct = async (id, dispatch) => {
+  dispatch(deleteProductStart());
+  try {
+    const res = await publicRequest.delete(`/products/${id}`);
+    dispatch(deleteProductSuccess(id));
+  } catch (err) {
+    dispatch(deleteProductFailure());
   }
 };

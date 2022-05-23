@@ -3,9 +3,15 @@
   import "./adminUser.css";
   
   export default function AdminUser() {
+    const handleClick = ()=>{
+      window.location.assign('/admin/home')
+    }
     return (
       <div className="user">
         <div className="userTitleContainer">
+        <Link to="/">
+          <button className="userAddButton" onClick={handleClick}>Back </button>
+        </Link>
           <h1 className="userTitle">Edit User</h1>
           <Link to="/newUser">
             <button className="userAddButton">Create</button>

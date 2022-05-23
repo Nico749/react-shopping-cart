@@ -69,7 +69,8 @@ export const productSlice = createSlice({
     },
 });
 
-export const { getProductStart,getProductFailure,getProductSuccess
+export const { getProductStart,getProductFailure,getProductSuccess, deleteProductFailure,deleteProductStart,deleteProductSuccess,
+    updateProductFailure,updateProductSuccess,updateProductStart, addProductFailure,addProductStart,addProductSuccess
 
 } = productSlice.actions;
 

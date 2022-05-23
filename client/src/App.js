@@ -16,6 +16,8 @@ import {
  
 } from "react-router-dom"
 import AdminProduct from './components/adminProduct/adminProduct';
+import NewUser from './components/newUser/newUser';
+import NewProduct from './components/newProduct/newProduct';
 
 
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/admin/home" element={<AdminHome />} />
         <Route path="/admin/user/:id" element={<AdminUser />} />
         <Route path="/admin/product/:id" element={<AdminProduct />} />
+        <Route path="/newUser" element={<NewUser />} />
+        <Route path="/newProduct" element={<NewProduct />} />
         
         {/* no match route */}
         <Route path="*" element={

@@ -6,10 +6,16 @@ export default function AdminProduct() {
   return (
     <div className="user">
       <div className="userTitleContainer">
-        <h1 className="userTitle">Edit Product</h1>
-        <Link to="/newUser">
-          <button className="userAddButton">Create</button>
+           
+        <Link to="/">
+          <button className="userAddButton">Back </button>
         </Link>
+        <h1 className="userTitle">Edit Product</h1>
+       
+     
+        <Link to="/newProduct">
+          <button className="userAddButton">Create</button>
+        </Link> 
       </div>
       <div className="userContainer">
         <div className="userShow">
