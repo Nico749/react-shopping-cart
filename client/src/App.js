@@ -6,12 +6,15 @@ import Register from './pages/Register';
 import Product from './pages/Product';
 import ProductList from './pages/ProductList';
 import AdminLogin from './pages/AdminLogin';
+import AdminHome from './pages/adminHome/AdminHome';
+
 import {
   BrowserRouter,
   Routes,
   Route,
  
 } from "react-router-dom"
+
 
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/home" element={<AdminHome />} />
         {/* no match route */}
         <Route path="*" element={
           <main style={{ padding: "1rem" }}>

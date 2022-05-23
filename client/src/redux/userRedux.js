@@ -21,6 +21,20 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    adminloginStart: (state) => {
+      state.isFetching = true;
+    },
+    adminloginSuccess: (state, action) => {
+      state.isFetching = false;
+      state.currentUser = action.payload;
+      localStorage.setItem('user', JSON.stringify(state.currentUser.username));
+      localStorage.setItem('admin', JSON.stringify(state.currentUser.isAdmin));
+      window.location.assign('/admin/home');
+    },
+    adminloginFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
    
     
     logout:(state) =>{
@@ -33,5 +47,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout} = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout, adminloginFailure, adminloginStart, adminloginSuccess} = userSlice.actions;
 export default userSlice.reducer;

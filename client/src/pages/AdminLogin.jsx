@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-//import { login } from "../../redux/apiCalls";
+import { adminLogin } from "../redux/apiCalls"
 
 const Login = () => {
   //set username,password
@@ -10,7 +10,8 @@ const Login = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    //login(dispatch, { username, password });
+    //console.log(username, password)
+    adminLogin(dispatch, { username, password });
   };
 
   return (
