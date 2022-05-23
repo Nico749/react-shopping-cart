@@ -7,6 +7,7 @@ import Product from './pages/Product';
 import ProductList from './pages/ProductList';
 import AdminLogin from './pages/AdminLogin';
 import AdminHome from './pages/adminHome/AdminHome';
+import AdminUser from './components/adminUser/adminUser';
 
 import {
   BrowserRouter,
@@ -14,6 +15,7 @@ import {
   Route,
  
 } from "react-router-dom"
+import AdminProduct from './components/adminProduct/adminProduct';
 
 
 
@@ -30,6 +32,9 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/home" element={<AdminHome />} />
+        <Route path="/admin/user/:id" element={<AdminUser />} />
+        <Route path="/admin/product/:id" element={<AdminProduct />} />
+        
         {/* no match route */}
         <Route path="*" element={
           <main style={{ padding: "1rem" }}>

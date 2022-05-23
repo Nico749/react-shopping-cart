@@ -40,7 +40,7 @@ const columns = [
     renderCell: (params) => {
       return (
         <>
-          <Link to={"/product/" + params.row.id}>
+          <Link to={"/admin/user/" + params.row.id}>
             <button className="productListEdit">Edit</button>
           </Link>
           <DeleteOutlineOutlinedIcon
