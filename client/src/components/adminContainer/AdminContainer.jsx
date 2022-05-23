@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavTabs from '../adminNavbar/adminNavbar';
 import AdminProducts from '../adminProducts/AdminProducts';
-import Users from '../Users';
+import Users from '../adminUsers/Users';
 import Home from '../Home'
 import './adminContainer.css';
 import Recipes from '../Recipes';

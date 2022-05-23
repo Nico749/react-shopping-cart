@@ -1,34 +1,34 @@
-import "./adminProducts.css";
+import "./adminUsers.css";
 import  {React} from 'react';
 import {Link} from 'react-router-dom'
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import {productRows} from '../../dummydata'
+import {userRows} from '../../dummydata'
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 },
   {
-    field: "product",
-    headerName: "Product",
+    field: "username",
+    headerName: "Username",
     width: 200,
     renderCell: (params) => {
       return (
         <div className="productListItem">
-          <img className="productListImg" src={params.row.img} alt="" />
-          {params.row.product}
+          <img className="productListImg" src={params.row.avatar} alt="" />
+          {params.row.username}
         </div>
       );
     },
   },
   {
-    field: 'price',
-    headerName: 'Price',
+    field: 'email',
+    headerName: 'Mail',
     width: 200,
     editable: true,
   },
   {
-    field: 'stock',
-    headerName: 'Stock',
+    field: 'status',
+    headerName: 'Admin',
     type: 'number',
     width: 200,
     editable: true,
@@ -55,11 +55,11 @@ const columns = [
 ];
 
 
-export default function AdminProducts() {
+export default function Users() {
   return (
     <div style={{ height: 600, width: 1000, marginTop:30, marginLeft:30 }}>
       <DataGrid
-        rows={productRows}
+        rows={userRows}
         columns={columns}
         pageSize={8}
         rowsPerPageOptions={[8]}
