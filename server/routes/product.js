@@ -4,7 +4,7 @@ const { verifyToken, verifyTokenAndAuth, verifyTokenAndAdmin } = require('./veri
 const router = require('express').Router()
 
 //create a new product (admin)
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/", async (req, res) => {
     const product = new Product(req.body);
   
     try {

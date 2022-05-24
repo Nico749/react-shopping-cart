@@ -1,30 +1,108 @@
 import "./newProduct.css";
+import { useState } from "react";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import app from "../../firebase";
+import { addProduct } from "../../redux/apiCalls";
+import {useDispatch} from 'react-redux'
+
 
 export default function NewProduct() {
+  //different useState to grab the value we pass in for a new product
+  const [product,setProduct]  =useState({})
+  const [img,setImg] =useState(null)
+  const [cat,setCat] = useState([])
+  const dispatch = useDispatch()
+  
+  const handleChange =(e)=>{
+    setProduct(prev=>{
+     return{ ...prev, [e.target.name]:e.target.value}
+    })
+  }
+  const handleCategories=(e)=>{
+    //take the category as an array
+    setCat(e.target.value.split(','))
+  }
+
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    //give the imaghe an unique name
+    const imageName = new Date().getTime() + img.name
+    const storage = getStorage(app)
+    const StorageRef = ref(storage, imageName)
+    const uploadTask = uploadBytesResumable(StorageRef, img);
+
+    //Firebase to manage the photo upload
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on('state_changed',
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        //console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            // console.log('Upload is paused');
+            break;
+          case 'running':
+            //console.log('Upload is running');
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          //new product data
+          //console.log({...product, image:downloadURL, categories:cat});
+          const newProduct = { ...product, image: downloadURL, categories: cat }
+          addProduct(newProduct, dispatch)
+          window.location.assign('/admin/home')
+        });
+      }
+    );
+  }
+
+  
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
-          <input type="file" id="file" />
+          <input type="file" id="file" onChange={e=>setImg(e.target.files[0])}/>
         </div>
         <div className="addProductItem">
-          <label>Name</label>
-          <input type="text" placeholder="Apple Airpods" />
+          <label>Title:</label>
+          <input name="title" type="text" placeholder="" onChange={handleChange}/>
         </div>
         <div className="addProductItem">
-          <label>Stock</label>
-          <input type="text" placeholder="123" />
+          <label>Description:</label>
+          <input name="description" type="text" placeholder="" onChange={handleChange}/>
         </div>
         <div className="addProductItem">
-          <label>Active</label>
-          <select name="active" id="active">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+          <label>Categories:</label>
+          <input type="text" placeholder="" onChange={handleCategories}/>
         </div>
-        <button className="addProductButton">Create</button>
+        <div className="addProductItem">
+          <label>Price:</label>
+          <input name = "price" type="number" placeholder="" onChange={handleChange}/>
+        </div>
+        <div className="addProductItem">
+          <label>Stock:</label>
+       <select name = "inStock" onChange={handleChange}>
+         <option value ="true">Yes</option>
+         <option value ="false">No</option>
+       </select>
+        </div>       
+        <button onClick = {handleClick} className="addProductButton">Create</button>
       </form>
     </div>
   );
