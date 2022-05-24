@@ -27,7 +27,7 @@ router.put('/:id',verifyTokenAndAuth,async (req,res)=>{
 })
 
 //delete a product
-router.delete("/:id", verifyTokenAndAdmin, async(req,res)=>{
+router.delete("/:id", async(req,res)=>{
     try{
         await Product.findByIdAndDelete(req.params.id)
         res.status(200).json("Product successfully deleted")
@@ -66,6 +66,15 @@ router.get("/find/:id", async (req, res) => {
     }
   });
 
+  //get admin
+  router.get("/admin/find/:id", async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        res.status(200).json(product);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
   
 
 module.exports = router

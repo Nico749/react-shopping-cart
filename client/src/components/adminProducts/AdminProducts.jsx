@@ -19,6 +19,7 @@ export default function AdminProducts() {
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
+  
 
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);

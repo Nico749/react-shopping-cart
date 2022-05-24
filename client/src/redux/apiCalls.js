@@ -1,5 +1,5 @@
 import { loginFailure, loginStart, loginSuccess, logout, adminloginFailure, adminloginStart, adminloginSuccess } from "./userRedux";
-import { publicRequest } from "../requestMethods";
+import { publicRequest, userRequest } from "../requestMethods";
 import {  addClientFailure,addClientStart,addClientSuccess
  } from "./clientRedux";
  import { getProductStart,getProductFailure,getProductSuccess, deleteProductFailure,deleteProductStart,deleteProductSuccess,
