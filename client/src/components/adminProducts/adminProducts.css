@@ -29,3 +29,15 @@
     color: red;
     cursor: pointer;
 }
+
+.newProduct {
+    width: 150px;
+    border: none;
+    padding: 5px;
+    background-color:teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    margin-right: 30px;
+  }

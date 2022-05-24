@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import './adminNavbar.css';
+import { useDispatch } from "react-redux";
+import { userLogout } from "../../redux/apiCalls";
 
 
 function NavTabs({ currentPage, handlePageChange }) {
   const [isActive, setisActive] = useState(false);
   function MouseOver(event) {
-    event.target.style.background = 'Tomato';
+    event.target.style.background = 'Transparent';
   }
   function MouseOut(event){
-    event.target.style.background="white";
+    event.target.style.background="Transparent";
   }
+  const dispatch = useDispatch()
+  const handleLogout = (e) => {
+    e.preventDefault()
+    userLogout(dispatch)
+  }
+
   return (
     <>
       <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -34,7 +42,7 @@ function NavTabs({ currentPage, handlePageChange }) {
         >
           <div className="navbar-start">
             <ul ><li className='adminLi' >
-            <a onMouseOver={MouseOver} onMouseOut={MouseOut}
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#home"
               onClick={() => handlePageChange('Home')}
               className={`${'navbar-item has-text-white'} currentPage === 'Home' 
@@ -43,7 +51,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             >
               Home
             </a></li><li className='adminLi'>
-            <a onMouseOver={MouseOver} onMouseOut={MouseOut}
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#products"
               onClick={() => handlePageChange('AdminProducts')}
               className={`${'navbar-item has-text-white'} currentPage === 'AdminProducts' 
@@ -52,7 +60,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             >
               Products
             </a></li><li className='adminLi'>
-            <a onMouseOver={MouseOver} onMouseOut={MouseOut}
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#users"
               onClick={() => handlePageChange('Users')}
               className={`${'navbar-item has-text-white'} currentPage === 'Users' 
@@ -61,7 +69,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             >
               Users
             </a></li><li className='adminLi'>
-            <a onMouseOver={MouseOver} onMouseOut={MouseOut}
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#recipes"
               onClick={() => handlePageChange('Recipes')}
               className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
@@ -70,8 +78,31 @@ function NavTabs({ currentPage, handlePageChange }) {
             >
               Recipes
             </a></li>
-           
+            <li className='adminLi'>
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
+              href="#recipes"
+              onClick={() => handlePageChange('Recipes')}
+              className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
+          ? 'nav-link active' 
+          : 'nav-link'`}
+            >
+              Staff
+            </a></li>
+            <li className='adminLi'>
+            <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
+              href="#recipes"
+              onClick={() => handlePageChange('Recipes')}
+              className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
+          ? 'nav-link active' 
+          : 'nav-link'`}
+            >
+              Stock
+            </a></li>
+            <button onClick={handleLogout} className="logout">
+              Log Out
+            </button>
             </ul>
+
           </div>
         </div>
       </nav>

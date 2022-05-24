@@ -57,7 +57,10 @@ const columns = [
 
 export default function Users() {
   return (
-    <div style={{ height: 600, width: 1000, marginTop:30, marginLeft:30 }}>
+    <div style={{ height: 600, width: 1100, marginTop:30, display:"flex",justifyContent:"center"}}>
+       <Link to="/newUser">
+        <button className="newProduct">Create New User </button>
+      </Link> 
       <DataGrid
         rows={userRows}
         columns={columns}

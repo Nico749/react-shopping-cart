@@ -28,9 +28,9 @@ export default function Home() {
          <div className="home">
           <div className="homeWidgets">
             <AdminContainer />
-            <button style ={{  position:"absolute", top:0}}onClick={handleLogout} className="sidebarListItem">
+            {/* <button onClick={handleLogout} className="logout">
               Log Out
-            </button>
+            </button> */}
           </div>
         </div>
         </>
