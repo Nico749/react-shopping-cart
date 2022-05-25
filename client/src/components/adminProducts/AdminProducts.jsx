@@ -2,12 +2,10 @@ import "./adminProducts.css";
 import {Link} from 'react-router-dom'
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import {productRows} from '../../dummydata'
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  deleteProduct, getProducts } from "../../redux/apiCalls";
-import { formControlLabelClasses } from "@mui/material";
+
 
 
 export default function AdminProducts() { 
@@ -69,7 +67,7 @@ export default function AdminProducts() {
   return (
     <div style={{ height: 600, width: 1100, marginTop:30, display:"flex",justifyContent:"center"}}>
       <Link to="/newProduct">
-        <button className="newProduct">Create New Product </button>
+        <button className="newProductButton">Create New Product </button>
       </Link> 
       <DataGrid
         rows={products}

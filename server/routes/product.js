@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   });
   
 //update existing product 
-router.put('/:id',verifyTokenAndAuth,async (req,res)=>{
+router.put('/:id',async (req,res)=>{
    try{
     const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{
         $set:req.body
