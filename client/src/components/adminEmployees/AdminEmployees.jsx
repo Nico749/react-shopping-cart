@@ -73,7 +73,7 @@ export default function Employee() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/" + params.row._id}>
+            <Link to={"/admin/employee/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutlineOutlinedIcon

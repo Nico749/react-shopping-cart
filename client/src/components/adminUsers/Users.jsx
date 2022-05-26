@@ -3,7 +3,6 @@ import  {React} from 'react';
 import {Link} from 'react-router-dom'
 import { DataGrid } from "@material-ui/data-grid";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import {userRows} from '../../dummydata'
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";

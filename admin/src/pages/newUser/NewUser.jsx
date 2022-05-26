@@ -16,7 +16,7 @@ export default function NewUser() {
   const handleClick = (e)=>{
     e.preventDefault()
     const newUser = {...user}
-    console.log(newUser)
+    //console.log(newUser)
     addClient(newUser,dispatch)
     window.location.assign('/users')
   }

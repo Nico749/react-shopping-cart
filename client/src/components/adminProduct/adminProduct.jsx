@@ -12,15 +12,18 @@ const dispatch = useDispatch()
 //const updatedProduct = useSelector(state => state.product.products.find(product => product._id === prodId))
 const updatedProduct = useSelector((state) => state.product.products.find(product => product._id === prodId))
 const [product, setProduct] = useState({updatedProduct})
-console.log(product)
+//console.log(product)
 
+const handleClick = () => {
+  window.location.assign('/admin/home')
+}
   return (
     <div className="user">
       <div className="userTitleContainer">
            
-        <Link to="/">
-          <button className="userAddButton">Back </button>
-        </Link>
+       
+          <button className="userAddButton"onClick={handleClick}>Back </button>
+        
         <h1 className="userTitle">Edit Product</h1>
        
      

@@ -8,6 +8,7 @@ import ProductList from './pages/ProductList';
 import AdminLogin from './pages/AdminLogin';
 import AdminHome from './pages/adminHome/AdminHome';
 import AdminUser from './components/adminUser/adminUser';
+import AdminEmployee from './components/adminEmployee/AdminEmployee';
 
 import {
   BrowserRouter,
@@ -36,6 +37,7 @@ function App() {
         <Route path="/admin/home" element={<AdminHome />} />
         <Route path="/admin/user/:id" element={<AdminUser />} />
         <Route path="/admin/product/:id" element={<AdminProduct />} />
+        <Route path="/admin/employee/:id" element={<AdminEmployee />} />
         <Route path="/newUser" element={<NewUser />} />
         <Route path="/newProduct" element={<NewProduct />} />
         
