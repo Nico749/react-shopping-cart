@@ -14,7 +14,7 @@ export default function Users() {
 
   const dispatch = useDispatch();
   const users = useSelector((state) => state.client.clients)
-  console.log(users)
+  //console.log(users)
 
   useEffect(() => {
     getClients(dispatch);

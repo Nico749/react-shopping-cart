@@ -1,8 +1,16 @@
 
-  import { Link } from "react-router-dom";
-  import "./adminUser.css";
+import "./adminUser.css";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {format} from 'timeago.js'
+
   
   export default function AdminUser() {
+    const location = useLocation()
+    const userId = location.pathname.split('/')[3]
+    const updatedUser = useSelector(state => state.client.clients.find(client => client._id === userId))
+   
+
     const handleClick = ()=>{
       window.location.assign('/admin/home')
     }
@@ -20,39 +28,28 @@
         <div className="userContainer">
           <div className="userShow">
             <div className="userShowTop">
-              <img
-                src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                alt=""
-                className="userShowImg"
-              />
+             
               <div className="userShowTopTitle">
-                <span className="userShowUsername">Anna Becker</span>
-                <span className="userShowUserTitle">Software Engineer</span>
+                <span className="userShowUsername">{updatedUser.username}</span>
+                
               </div>
             </div>
             <div className="userShowBottom">
-              <span className="userShowTitle">Account Details</span>
+              <span className="userShowTitle">Created at</span>
               <div className="userShowInfo">
+              <span className="userShowInfoTitle">{format(updatedUser.createdAt)}</span>
       
-                <span className="userShowInfoTitle">annabeck99</span>
+             
               </div>
-              <div className="userShowInfo">
-                
-                <span className="userShowInfoTitle">10.12.1999</span>
-              </div>
+              
               <span className="userShowTitle">Contact Details</span>
               <div className="userShowInfo">
      
-                <span className="userShowInfoTitle">+1 123 456 67</span>
+              <span className="userShowInfoTitle">{updatedUser.mail}</span>
+
               </div>
-              <div className="userShowInfo">
-                
-                <span className="userShowInfoTitle">annabeck99@gmail.com</span>
-              </div>
-              <div className="userShowInfo">
-               
-                <span className="userShowInfoTitle">New York | USA</span>
-              </div>
+              
+            
             </div>
           </div>
           <div className="userUpdate">
@@ -63,15 +60,7 @@
                   <label>Username</label>
                   <input
                     type="text"
-                    placeholder="annabeck99"
-                    className="userUpdateInput"
-                  />
-                </div>
-                <div className="userUpdateItem">
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="Anna Becker"
+                    placeholder={updatedUser.username}
                     className="userUpdateInput"
                   />
                 </div>
@@ -79,41 +68,23 @@
                   <label>Email</label>
                   <input
                     type="text"
-                    placeholder="annabeck99@gmail.com"
+                    placeholder={updatedUser.mail}
                     className="userUpdateInput"
                   />
                 </div>
                 <div className="userUpdateItem">
-                  <label>Phone</label>
-                  <input
-                    type="text"
-                    placeholder="+1 123 456 67"
-                    className="userUpdateInput"
-                  />
+                  <label>Is Admin</label>
+                  <select name="isAdmin" id="idStock">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
                 </div>
-                <div className="userUpdateItem">
-                  <label>Address</label>
-                  <input
-                    type="text"
-                    placeholder="New York | USA"
-                    className="userUpdateInput"
-                  />
-                </div>
+                <button className="userUpdateButton" style={{marginTop:20, width:100}}>Update</button>
+                
+               
               </div>
-              <div className="userUpdateRight">
-                <div className="userUpdateUpload">
-                  <img
-                    className="userUpdateImg"
-                    src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                    alt=""
-                  />
-                  <label htmlFor="file">
- 
-                  </label>
-                  <input type="file" id="file" style={{ display: "none" }} />
-                </div>
-                <button className="userUpdateButton">Update</button>
-              </div>
+              
+             
             </form>
           </div>
         </div>

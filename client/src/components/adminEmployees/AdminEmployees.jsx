@@ -40,19 +40,19 @@ export default function Employee() {
     {
         field: 'lastName',
         headerName: 'Last Name',
-        width: 130,
+        width: 160,
         editable: true,
       },
       {
         field: 'role',
         headerName: 'Role',
-        width: 130,
+        width: 150,
         editable: true,
       },
     {
       field: 'mail',
       headerName: 'Mail',
-      width: 130,
+      width: 150,
       editable: true,
     },
     {
