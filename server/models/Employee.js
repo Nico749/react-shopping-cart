@@ -19,6 +19,10 @@ const EmployeeSchema = new mongoose.Schema(
             type: String,
              required: true
         },
+        role:{
+            type:String,
+            default:"Sales Assistant"
+        },
         salary:{
             type: Number,
              required: true

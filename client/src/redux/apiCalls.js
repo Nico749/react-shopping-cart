@@ -6,9 +6,14 @@ import { getClientStart,getClientFailure,getClientSuccess, deleteClientFailure,d
  import { getProductStart,getProductFailure,getProductSuccess, deleteProductFailure,deleteProductStart,deleteProductSuccess,
   updateProductFailure,updateProductSuccess,updateProductStart, addProductFailure,addProductStart,addProductSuccess
  } from "./productRedux";
+ import { getEmployeeStart,getEmployeeFailure,getEmployeeSuccess, deleteEmployeeFailure,deleteEmployeeStart,deleteEmployeeSuccess,
+  updateEmployeeFailure,updateEmployeeSuccess,updateEmployeeStart, addEmployeeFailure,addEmployeeStart,addEmployeeSuccess
+
+} from './employeeRedux'
+
+
 
  //login, register and logout api
-
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
@@ -98,11 +103,11 @@ export const deleteClient = async (id, dispatch) => {
   }
 };
 
-export const updateClient = async (id, product, dispatch) => {
+export const updateClient = async (id, client, dispatch) => {
   dispatch(updateClientStart());
   try {
     const res = await userRequest.update(`/users/${id}`);
-    dispatch(updateClientSuccess({ id: id, product: product }));
+    dispatch(updateClientSuccess({ id: id, product: client }));
   } catch (err) {
     dispatch(updateClientFailure());
   }
@@ -115,5 +120,47 @@ export const addClient = async (user, dispatch) => {
     dispatch(addClientSuccess(res.data));
   } catch (err) {
     dispatch(addClientFailure());
+  }
+}
+
+
+//get users
+export const getEmployees = async (dispatch) => {
+  dispatch(getEmployeeStart());
+  try {
+    const res = await publicRequest.get("/admin/employee");
+    dispatch(getEmployeeSuccess(res.data));
+  } catch (err) {
+    dispatch(getEmployeeFailure());
+  }
+};
+//we need to be admin to delete a user
+export const deleteEmployee = async (id, dispatch) => {
+  dispatch(deleteEmployeeStart());
+  try {
+    const res = await publicRequest.delete(`/admin/employee/${id}`);
+    dispatch(deleteEmployeeSuccess(id));
+  } catch (err) {
+    dispatch(deleteEmployeeFailure());
+  }
+};
+
+export const updateEmployee = async (id, employee, dispatch) => {
+  dispatch(updateEmployeeStart());
+  try {
+    const res = await publicRequest.update(`/admin/employee/${id}`);
+    dispatch(updateEmployeeSuccess({ id: id, employee: employee }));
+  } catch (err) {
+    dispatch(updateEmployeeFailure());
+  }
+}
+
+export const addEmployee = async (user, dispatch) => {
+  dispatch(addEmployeeStart());
+  try {
+    const res = await publicRequest.post(`/admin/employee`, user);
+    dispatch(addEmployeeSuccess(res.data));
+  } catch (err) {
+    dispatch(addEmployeeFailure());
   }
 }

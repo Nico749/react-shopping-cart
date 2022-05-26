@@ -50,7 +50,8 @@ router.get("/employee/:id", async (req, res) => {
       lastName: req.body.lastName,
       mail: req.body.mail, 
       salary: req.body.salary,
-      phone: req.body.phone
+      phone: req.body.phone,
+      role: req.body.role
       
   })
 

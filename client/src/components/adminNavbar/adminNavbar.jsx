@@ -80,9 +80,9 @@ function NavTabs({ currentPage, handlePageChange }) {
             </a></li>
             <li className='adminLi'>
             <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
-              href="#recipes"
-              onClick={() => handlePageChange('Recipes')}
-              className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
+              href="#staff"
+              onClick={() => handlePageChange('AdminEmployees')}
+              className={`${'navbar-item has-text-white'} currentPage === 'AdminEmployees' 
           ? 'nav-link active' 
           : 'nav-link'`}
             >
@@ -90,7 +90,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             </a></li>
             <li className='adminLi'>
             <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
-              href="#recipes"
+              href="#staff"
               onClick={() => handlePageChange('Recipes')}
               className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
           ? 'nav-link active' 

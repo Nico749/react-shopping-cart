@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavTabs from '../adminNavbar/adminNavbar';
 import AdminProducts from '../adminProducts/AdminProducts';
+import AdminEmployees from '../adminEmployees/AdminEmployees';
 import Users from '../adminUsers/Users';
 import Home from '../Home'
 import './adminContainer.css';
@@ -18,6 +19,9 @@ export default function AdminContainer() {
     }
     if (currentPage === 'Recipes') {
         return <Recipes />;
+      }
+      if (currentPage === 'AdminEmployees') {
+        return <AdminEmployees />;
       }
     return <Users />;
   };
