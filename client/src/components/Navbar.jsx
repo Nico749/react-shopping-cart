@@ -4,7 +4,7 @@ import Badge from '@mui/material/Badge';
 import { ShoppingCartOutlined } from '@mui/icons-material'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
-import { userLogout } from '../redux/apiCalls'
+import { cartLogout, userLogout } from '../redux/apiCalls'
 
 
 //creating styled components
@@ -58,6 +58,8 @@ function Navbar() {
 
   const handleLogout = (e) => {
     e.preventDefault()
+    
+    //cartLogout(dispatch)
     userLogout(dispatch)
   }
 

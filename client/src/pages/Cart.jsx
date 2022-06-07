@@ -173,6 +173,7 @@ const Cart = () => {
   //console.log(stripeToken)
   
   const TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).accessToken
+  const user =localStorage.getItem('user')
   useEffect(() => {
     const paymentRequest = async () => {
       try {
@@ -247,6 +248,7 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
+            {user ?(
             <StripeCheckout
               name="Nico's"
               billingAddress
@@ -256,8 +258,15 @@ const Cart = () => {
               token={onToken}
               stripeKey={stripePKey}
             >
-              <Button>CHECKOUT NOW</Button>
-            </StripeCheckout>
+              
+               <Button>CHECKOUT NOW</Button>
+                </StripeCheckout>) : (
+              <Link to ='/login'>
+              <Button>LOG IN TO CHECKOUT </Button>
+              </Link>
+            )}
+             
+        
           </Summary>
         </Bottom>
       </Wrapper>

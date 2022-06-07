@@ -10,7 +10,7 @@ import { getClientStart,getClientFailure,getClientSuccess, deleteClientFailure,d
   updateEmployeeFailure,updateEmployeeSuccess,updateEmployeeStart, addEmployeeFailure,addEmployeeStart,addEmployeeSuccess
 
 } from './employeeRedux'
-
+import {cartEnd, removeProduct} from './cartRedux'
 
 
  //login, register and logout api
@@ -38,6 +38,11 @@ export const userLogout = async (dispatch) => {
   dispatch(logout())
 
 }
+export const cartLogout = async (dispatch) => {
+  dispatch(cartEnd())
+
+}
+
 
 //public request because you don't need to be admin to retrieve products
 export const getProducts = async (dispatch) => {
@@ -64,7 +69,7 @@ export const deleteProduct = async (id, dispatch) => {
 export const updateProduct = async (id, product, dispatch) => {
   dispatch(updateProductStart());
   try {
-    const res = await publicRequest.update(`/products/${id}`);
+    //const res = await publicRequest.update(`/products/${id}`);
     dispatch(updateProductSuccess({ id: id, product: product }));
   } catch (err) {
     dispatch(updateProductFailure());

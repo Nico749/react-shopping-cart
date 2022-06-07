@@ -22,11 +22,12 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ employee:employeeReducer, user: userReducer, cart: cartReducer, product: productReducer, client:clientReducer });
+const rootReducer = combineReducers({ employee:employeeReducer, cart:cartReducer, user: userReducer, product: productReducer, client:clientReducer });
 
  const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store =  configureStore({
+ 
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
    getDefaultMiddleware({

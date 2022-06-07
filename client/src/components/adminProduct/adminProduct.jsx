@@ -4,17 +4,87 @@ import "./adminProduct.css";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { updateProduct } from "../../redux/apiCalls";
+import app from "../../firebase";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+
+
+
 
 export default function AdminProduct() {
 const location = useLocation()
 const prodId = location.pathname.split('/')[3]
-const dispatch = useDispatch()
+
 //const updatedProduct = useSelector(state => state.product.products.find(product => product._id === prodId))
 const updatedProduct = useSelector((state) => state.product.products.find(product => product._id === prodId))
 const [product, setProduct] = useState({updatedProduct})
 //console.log(product)
 
-const handleClick = () => {
+const [img,setImg] =useState(null)
+const [cat,setCat] = useState([])
+const dispatch = useDispatch()
+
+const handleChange =(e)=>{
+  setProduct(prev=>{
+   return{ ...prev, [e.target.name]:e.target.value}
+  })
+}
+const handleCategories=(e)=>{
+  //take the category as an array
+  setCat(e.target.value.split(','))
+}
+
+const handleClick = (e) => {
+  e.preventDefault()
+  
+  //give the imaghe an unique name
+  const imageName = new Date().getTime() + img.name
+  const storage = getStorage(app)
+  const StorageRef = ref(storage, imageName)
+  const uploadTask = uploadBytesResumable(StorageRef, img);
+
+  //Firebase to manage the photo upload
+  // Register three observers:
+  // 1. 'state_changed' observer, called any time the state changes
+  // 2. Error observer, called on failure
+  // 3. Completion observer, called on successful completion
+  uploadTask.on('state_changed',
+    (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      //console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case 'paused':
+          // console.log('Upload is paused');
+          break;
+        case 'running':
+          //console.log('Upload is running');
+          break;
+        default:
+      }
+    },
+    (error) => {
+      // Handle unsuccessful uploads
+    },
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        //new product data
+        //console.log({...product, image:downloadURL, categories:cat});
+        const newProduct = { ...product, image: downloadURL, categories: cat }
+        //console.log(newProduct)
+        updateProduct(newProduct, dispatch)
+        
+        //window.location.assign('/admin/home')
+      });
+    }
+  );
+}
+
+const handleBack = () => {
   window.location.assign('/admin/home')
 }
   return (
@@ -22,7 +92,7 @@ const handleClick = () => {
       <div className="userTitleContainer">
            
        
-          <button className="userAddButton"onClick={handleClick}>Back </button>
+          <button className="userAddButton"onClick={handleBack}>Back </button>
         
         <h1 className="userTitle">Edit Product</h1>
        
@@ -70,31 +140,28 @@ const handleClick = () => {
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
                 <label>Title</label>
-                <input
-                  type="text"
-                  placeholder=""
-                  className="userUpdateInput"
-                />
+                <input name="title" type="text" placeholder="" onChange={handleChange}/>
+
               </div>
               <div className="userUpdateItem">
                 <label>Description</label>
-                <input
-                  type="text"
-                  placeholder=""
-                  className="userUpdateInput"
-                />
+                <input name="description" type="text" placeholder="" onChange={handleChange}/>
+
               </div>
               <div className="userUpdateItem">
+                <label>Categories:</label>
+                <input type="text" placeholder="" onChange={handleCategories} />
+              </div>
+
+              <div className="userUpdateItem">
                 <label>Price</label>
-                <input
-                  type="text"
-                  placeholder=""
-                  className="userUpdateInput"
-                />
+                <input name = "price" type="number" placeholder="" onChange={handleChange}/>
+
               </div>
               <div className="userUpdateItem">
               <label>In Stock</label>
-                        <select  name="inStock" id="idStock">
+              <select name = "inStock" onChange={handleChange}>
+
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
@@ -103,17 +170,14 @@ const handleClick = () => {
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src=""
-                  alt=""
-                />
+              <input type="file" id="file" onChange={e=>setImg(e.target.files[0])}/>
+
                 <label htmlFor="file">
 
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <button className="userUpdateButton">Update</button>
+              <button  className="userUpdateButton">Update</button>
             </div>
           </form>
         </div>

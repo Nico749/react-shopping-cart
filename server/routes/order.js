@@ -35,7 +35,7 @@ router.delete("/:id", verifyTokenAndAdmin, async(req,res)=>{
 })
 
 //get all orders (only admin)
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const orders = await Order.find()
         res.status(200).json(orders)

@@ -17,7 +17,18 @@ const cartSlice = createSlice({
             state.total +=action.payload.price*action.payload.quantity // quantity of a single item 
             
         }, 
-        //TO DO remove a product(works but currently removing all the products)
+        cartEnd:(state,action)=>{
+           
+            state.products=[]
+            state.quantity =0 // cart quantity
+            localStorage.removeItem('cart')
+    
+       
+            state.total = 0
+            //window.location.assign('/');
+      
+        },
+        // //TO DO remove a product(works but currently removing all the products)
         // removeProduct: (state, action) => {
 
         //     state.products.map((product) => {
@@ -44,5 +55,5 @@ const cartSlice = createSlice({
     })
 
 
-export const {addProduct} = cartSlice.actions
+export const {addProduct, cartEnd,removeProduct} = cartSlice.actions
 export default cartSlice.reducer 
