@@ -4,6 +4,9 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
 import {useDispatch} from 'react-redux'
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import { Link } from "react-router-dom";
+
 
 
 export default function NewProduct() {
@@ -72,8 +75,12 @@ export default function NewProduct() {
 
   
   return (
+    <>
+    <Link to="/admin/home">
+    <KeyboardBackspaceOutlinedIcon style={{fontSize:36}} /> 
+  </Link>
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="">New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
@@ -105,5 +112,5 @@ export default function NewProduct() {
         <button onClick = {handleClick} className="addProductButton">Create</button>
       </form>
     </div>
-  );
+    </>);
 }

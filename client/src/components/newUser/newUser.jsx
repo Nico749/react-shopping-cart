@@ -2,6 +2,8 @@ import "./newUser.css";
 import { useState } from "react";
 import { addClient } from "../../redux/apiCalls";
 import {useDispatch} from 'react-redux'
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import { Link } from "react-router-dom";
 
 
 export default function NewUser() {
@@ -21,7 +23,12 @@ export default function NewUser() {
     window.location.assign('/admin/home')
   }
 
-  return ( <div className="newUser">
+  return ( 
+    <>
+    <Link to="/admin/home">
+    <KeyboardBackspaceOutlinedIcon style={{fontSize:36}} /> 
+  </Link>
+  <div className="newUser">
   <h1 className="newUserTitle">New User</h1>
   <form className="newUserForm">
     <div className="newUserItem">
@@ -48,5 +55,5 @@ export default function NewUser() {
     <button onClick = {handleClick} className="newUserButton">Create</button>
   </form>
 </div>
-  );
+</> );
 }

@@ -1,7 +1,7 @@
 //retrieving existing users
 import "./widgetSm.css";
 import {useEffect, useState} from 'react'
-
+import {format} from 'timeago.js'
 import { publicRequest } from "../../requestMethods";
 
 export default function WidgetSm() {
@@ -18,12 +18,18 @@ export default function WidgetSm() {
       <div className="widgetSm">
         <span className="widgetSmTitle">Existing Members</span>
         <ul className="widgetSmList">
-          {users.map((user)=>(
+          {/* sort user by first access */}
+          {users
+          .sort((a,b) => new Date(a) < new Date(b) ? 1 : -1)
+          .map((user)=>(
+            
           <li className="widgetSmListItem" key={user.id}>
            
             <div className="widgetSmUser">
-              <span className="widgetSmUsername">{user.username}</span>
-              <span className="widgetSmUserTitle">{user.mail}</span>
+              <span className="widgetSmUsername">Name: {user.username}</span>
+              <span className="widgetSmUserTitle">Mail: {user.mail}</span>
+              <span className="widgetSmUserTitle">First Access: {format(user.createdAt)}</span>
+              
             </div>
          
           </li>
