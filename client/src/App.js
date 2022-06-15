@@ -9,7 +9,9 @@ import AdminLogin from './pages/AdminLogin';
 import AdminHome from './pages/adminHome/AdminHome';
 import AdminUser from './components/adminUser/adminUser';
 import AdminEmployee from './components/adminEmployee/AdminEmployee';
+import {ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 import {
   BrowserRouter,
   Routes,
@@ -26,6 +28,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ToastContainer />
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route path="/products/:category" element={<ProductList />} />

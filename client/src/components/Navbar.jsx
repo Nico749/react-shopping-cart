@@ -59,7 +59,7 @@ function Navbar() {
   const handleLogout = (e) => {
     e.preventDefault()
     
-    //cartLogout(dispatch)
+    cartLogout(dispatch)
     userLogout(dispatch)
   }
 
@@ -83,10 +83,13 @@ function Navbar() {
               </a>
               <Link to="/cart">
                 {/* <Item><Badge badgeContent={cartQuantity} color="primary"> */}
-                <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
+                <Item>
+                
+                  <Badge badgeContent={localStorage.getItem('cart')} color="primary">
                   <ShoppingCartOutlined
                     color="action" />
-                </Badge></Item>
+                </Badge>
+                </Item>
               </Link>
             </Right>
           </Wrapper>

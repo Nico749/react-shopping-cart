@@ -10,7 +10,7 @@ import { getClientStart,getClientFailure,getClientSuccess, deleteClientFailure,d
   updateEmployeeFailure,updateEmployeeSuccess,updateEmployeeStart, addEmployeeFailure,addEmployeeStart,addEmployeeSuccess
 
 } from './employeeRedux'
-import {cartEnd, removeProduct} from './cartRedux'
+import {cartEnd, clearCart, removeProduct} from './cartRedux'
 
 
  //login, register and logout api
@@ -42,6 +42,10 @@ export const cartLogout = async (dispatch) => {
   dispatch(cartEnd())
 
 }
+export const productRemove = async (dispatch, user) => {
+  dispatch(removeProduct());
+ 
+};
 
 
 //public request because you don't need to be admin to retrieve products

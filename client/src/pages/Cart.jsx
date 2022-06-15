@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { removeProduct } from '../redux/cartRedux';
+import { clearCart } from "../redux/cartRedux";
 
 
 const stripePKey = "pk_test_51KtMKTKEPl7cx7LLlNeT4ue0O4TTFPRVjhIr5T5Hu7WCK7MYlBx6b4y4esCNs04nym36jIDEmqDTz2c1GVitaWeN009SFpfAkB"
@@ -187,9 +188,12 @@ const Cart = () => {
     stripeToken && paymentRequest()
   }, [stripeToken, cart.total])
 
-  // const handleCart =(product) =>{
-  //   dispatch(removeProduct({product}))
-  //  }
+  const handleCart =(product) =>{
+    dispatch(removeProduct({product}))
+   }
+   const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <Container>
@@ -205,9 +209,14 @@ const Cart = () => {
             <TopText>You have {cart.quantity} items in your cart </TopText>
           </TopTexts>
         </Top>
+        {cart.products.length===0?<div style={{fontSize:24, display:"flex", justifyContent:"center", marginTop:60, marginBottom:80 }}>Your cart is currently empty</div>:(
+
         <Bottom>
-          <Info>
-            {cart.products.map((product) => (
+          
+          <Info> <button style={{marginBottom:30, backgroundColor:"red",border:"none", cursor:"pointer", borderRadius:20, color:"#fff"}}className="clear-btn" onClick={() => handleClearCart()}>
+              Clear Cart
+            </button>
+            {cart.products?.map((product) => (
               <Product>
                 <ProductDetail>
                   <Image src={product.image} />
@@ -225,7 +234,7 @@ const Cart = () => {
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
-                  {/* <Button onClick={handleCart} style={{width:"150px" , backgroundColor:"Red", borderRadius:"40px", border:"none", cursor:"pointer"}}>REMOVE FROM CART</Button> */}
+                  <Button onClick={()=>handleCart(product)} style={{width:"150px" , backgroundColor:"Red", borderRadius:"40px", border:"none", cursor:"pointer"}}>REMOVE FROM CART</Button>
                   <ProductAmountContainer>
                     <ProductAmount>Qty: {product.quantity}</ProductAmount>
                   </ProductAmountContainer>
@@ -233,8 +242,9 @@ const Cart = () => {
                     $ {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
-              </Product>
-
+               
+                </Product>
+               
             ))}
 
           </Info>
@@ -269,7 +279,7 @@ const Cart = () => {
         
           </Summary>
         </Bottom>
-      </Wrapper>
+     )} </Wrapper>
       <Footer />
     </Container>
   );
