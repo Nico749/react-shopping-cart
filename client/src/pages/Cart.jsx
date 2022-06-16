@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { removeProduct } from '../redux/cartRedux';
 import { clearCart } from "../redux/cartRedux";
+import Success from '../pages/Success'
 
 
 const stripePKey = "pk_test_51KtMKTKEPl7cx7LLlNeT4ue0O4TTFPRVjhIr5T5Hu7WCK7MYlBx6b4y4esCNs04nym36jIDEmqDTz2c1GVitaWeN009SFpfAkB"
@@ -213,7 +214,7 @@ const Cart = () => {
 
         <Bottom>
           
-          <Info> <button style={{marginBottom:30, backgroundColor:"red",border:"none", cursor:"pointer", borderRadius:20, color:"#fff"}}className="clear-btn" onClick={() => handleClearCart()}>
+          <Info> <button style={{marginBottom:30, width:80, height:25, backgroundColor:"#fff",border:"solid 1px black", cursor:"pointer", borderRadius:5, color:"black"}}className="clear-btn" onClick={() => handleClearCart()}>
               Clear Cart
             </button>
             {cart.products?.map((product) => (
@@ -270,7 +271,9 @@ const Cart = () => {
             >
               
                <Button>CHECKOUT NOW</Button>
-                </StripeCheckout>) : (
+                </StripeCheckout>) 
+                // <Success />
+                : (
               <Link to ='/login'>
               <Button>LOG IN TO CHECKOUT </Button>
               </Link>

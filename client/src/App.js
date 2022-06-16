@@ -9,6 +9,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminHome from './pages/adminHome/AdminHome';
 import AdminUser from './components/adminUser/adminUser';
 import AdminEmployee from './components/adminEmployee/AdminEmployee';
+import Success from './pages/Success';
 import {ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/admin/product/:id" element={<AdminProduct />} />
         <Route path="/admin/employee/:id" element={<AdminEmployee />} />
         <Route path="/newUser" element={<NewUser />} />
+        <Route path="/success" element={<Success />} />
         <Route path="/newProduct" element={<NewProduct />} />
         
         {/* no match route */}

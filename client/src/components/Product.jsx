@@ -59,12 +59,21 @@ const Icon = styled.div`
   }
 `;
 
+const Title = styled.h3`
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+`
+
 const Product = ({ item }) => {
   
  
   return (
-    <Container>
+    <>
     
+
+    <Container>
       <Image src = {item.image} alt = "COMING SOON"/>
       <Info>
         <Icon>
@@ -72,9 +81,10 @@ const Product = ({ item }) => {
           <SearchOutlined />
           </Link>
         </Icon>
+        <Title >{item.title}</Title>
       </Info>
     </Container>
-  );
+    </>);
 };
 
 export default Product;

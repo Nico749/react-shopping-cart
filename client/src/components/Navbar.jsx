@@ -74,7 +74,7 @@ function Navbar() {
             <Left>
             </Left>
             <Center>
-              <Logo>NICO'S SHOP</Logo>
+              <Logo>NICO'S PASTA</Logo>
             </Center>
             <Right>
               <Item>Welcome {JSON.parse(localStorage.getItem('user'))}!</Item>
@@ -84,11 +84,13 @@ function Navbar() {
               <Link to="/cart">
                 {/* <Item><Badge badgeContent={cartQuantity} color="primary"> */}
                 <Item>
-                
+                {JSON.parse(localStorage.getItem('cart'))>0 
+                ? 
                   <Badge badgeContent={localStorage.getItem('cart')} color="primary">
                   <ShoppingCartOutlined
                     color="action" />
-                </Badge>
+                  </Badge>
+                : null}
                 </Item>
               </Link>
             </Right>
@@ -104,7 +106,7 @@ function Navbar() {
             <Left>
             </Left>
             <Center>
-              <Logo>NICO'S SHOP</Logo>
+              <Logo>NICO'S PASTA</Logo>
             </Center>
             <Right>
               <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}>
@@ -114,10 +116,15 @@ function Navbar() {
                 <Item>LOG IN</Item>
               </Link>
               <Link to="/cart">
-                <Item><Badge badgeContent={localStorage.getItem('cart')} color="primary">
+                <Item>
+                {JSON.parse(localStorage.getItem('cart'))>0 
+                ? 
+                  <Badge badgeContent={localStorage.getItem('cart')} color="primary">
                   <ShoppingCartOutlined
                     color="action" />
-                </Badge></Item>
+                  </Badge>
+                : null}
+                </Item>
               </Link>
             </Right>
           </Wrapper>
