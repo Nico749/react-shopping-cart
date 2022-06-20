@@ -22,7 +22,7 @@ import {
 import AdminProduct from './components/adminProduct/adminProduct';
 import NewUser from './components/newUser/newUser';
 import NewProduct from './components/newProduct/newProduct';
-
+import NewEmployee from './components/newEmployee/NewEmployee';
 
 
 function App() {
@@ -43,6 +43,7 @@ function App() {
         <Route path="/admin/product/:id" element={<AdminProduct />} />
         <Route path="/admin/employee/:id" element={<AdminEmployee />} />
         <Route path="/newUser" element={<NewUser />} />
+        <Route path="/newEmployee" element={<NewEmployee />} />
         <Route path="/success" element={<Success />} />
         <Route path="/newProduct" element={<NewProduct />} />
         

@@ -93,7 +93,7 @@ export default function Employee() {
 
   return (
     <div style={{ height: 600, width: 1200, marginTop:30, display:"flex",justifyContent:"center"}}>
-       <Link to="/newUser">
+       <Link to="/newEmployee">
         <button className="newProductButton">Create New Employee </button>
       </Link> 
       <DataGrid

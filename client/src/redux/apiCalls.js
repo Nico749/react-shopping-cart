@@ -10,6 +10,9 @@ import { getClientStart,getClientFailure,getClientSuccess, deleteClientFailure,d
   updateEmployeeFailure,updateEmployeeSuccess,updateEmployeeStart, addEmployeeFailure,addEmployeeStart,addEmployeeSuccess
 
 } from './employeeRedux'
+import { getItemStart,getItemFailure,getItemSuccess, deleteItemFailure,deleteItemStart,deleteItemSuccess,
+  updateItemFailure,updateItemSuccess,updateItemStart, addItemFailure,addItemStart,addItemSuccess
+} from './itemRedux'
 import {cartEnd, clearCart, removeProduct} from './cartRedux'
 
 
@@ -171,5 +174,45 @@ export const addEmployee = async (user, dispatch) => {
     dispatch(addEmployeeSuccess(res.data));
   } catch (err) {
     dispatch(addEmployeeFailure());
+  }
+}
+//manage items
+export const getItems = async (dispatch) => {
+  dispatch(getItemStart());
+  try {
+    const res = await publicRequest.get("/item");
+    dispatch(getItemSuccess(res.data));
+  } catch (err) {
+    dispatch(getItemFailure());
+  }
+};
+//we need to be admin to delete a user
+export const deleteItem = async (id, dispatch) => {
+  dispatch(deleteItemStart());
+  try {
+    const res = await publicRequest.delete(`/item/${id}`);
+    dispatch(deleteItemSuccess(id));
+  } catch (err) {
+    dispatch(deleteItemFailure());
+  }
+};
+
+export const updateItem = async (id, employee, dispatch) => {
+  dispatch(updateItemStart());
+  try {
+    const res = await publicRequest.update(`/item/${id}`);
+    dispatch(updateItemSuccess({ id: id, employee: employee }));
+  } catch (err) {
+    dispatch(updateItemFailure());
+  }
+}
+
+export const addItem = async (user, dispatch) => {
+  dispatch(addItemStart());
+  try {
+    const res = await publicRequest.post(`/item`, user);
+    dispatch(addItemSuccess(res.data));
+  } catch (err) {
+    dispatch(addItemFailure());
   }
 }

@@ -19,7 +19,7 @@ export default function AdminUser() {
                 <Link to="/">
                     <button className="userAddButton" onClick={handleClick}>Back </button>
                 </Link>
-                <h1 className="userTitle">Edit User</h1>
+                <h1 className="userTitle">Edit Employee</h1>
                 <Link to="/newEmployee">
                     <button className="userAddButton">Create</button>
                 </Link>

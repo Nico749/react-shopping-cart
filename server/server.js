@@ -8,6 +8,7 @@ const productRoute = require ('./routes/product')
 const orderRoute = require ('./routes/order')
 const cartRoute = require ('./routes/cart')
 const employeeRoute = require ('./routes/employee')
+const itemRoute = require ('./routes/item')
 
 const cors = require ('cors')
 
@@ -30,6 +31,7 @@ app.use('/api/products', productRoute)
 app.use('/api/orders', orderRoute)
 app.use('/api/carts', cartRoute)
 app.use('/api/admin', employeeRoute)
+app.use('/api/item', itemRoute)
 
 
 app.listen(process.env.PORT || 5000, ()=>{

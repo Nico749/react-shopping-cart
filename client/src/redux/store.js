@@ -4,6 +4,7 @@ import userReducer from "./userRedux";
 import clientReducer from "./clientRedux";
 import productReducer from "./productRedux";
 import employeeReducer from "./employeeRedux"
+import itemReducer from "./itemRedux";
 import {
   persistStore,
   persistReducer,
@@ -22,7 +23,7 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ employee:employeeReducer, cart:cartReducer, user: userReducer, product: productReducer, client:clientReducer });
+const rootReducer = combineReducers({ item:itemReducer, employee:employeeReducer, cart:cartReducer, user: userReducer, product: productReducer, client:clientReducer });
 
  const persistedReducer = persistReducer(persistConfig, rootReducer);
 

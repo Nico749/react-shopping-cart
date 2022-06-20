@@ -59,7 +59,8 @@ function NavTabs({ currentPage, handlePageChange }) {
           : 'nav-link'`}
             >
               Products
-            </a></li><li className='adminLi'>
+            </a></li>
+            <li className='adminLi'>
             <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#users"
               onClick={() => handlePageChange('Users')}
@@ -68,7 +69,8 @@ function NavTabs({ currentPage, handlePageChange }) {
           : 'nav-link'`}
             >
               Users
-            </a></li><li className='adminLi'>
+            </a></li>
+            <li className='adminLi'>
             <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
               href="#recipes"
               onClick={() => handlePageChange('Recipes')}
@@ -90,9 +92,9 @@ function NavTabs({ currentPage, handlePageChange }) {
             </a></li>
             <li className='adminLi'>
             <a style={{color:"white"}}onMouseOver={MouseOver} onMouseOut={MouseOut}
-              href="#staff"
-              onClick={() => handlePageChange('Recipes')}
-              className={`${'navbar-item has-text-white'} currentPage === 'Recipes' 
+              href="#items"
+              onClick={() => handlePageChange('Items')}
+              className={`${'navbar-item has-text-white'} currentPage === 'Items' 
           ? 'nav-link active' 
           : 'nav-link'`}
             >

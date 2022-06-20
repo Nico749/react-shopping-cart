@@ -121,9 +121,13 @@ const Footer = () => {
           <Link style={{textDecoration:"none",color:"black",cursor:"pointer", margin:"20px", border:"2px solid black", borderRadius:"50px", width:"120px"}} to ="/cart">
           <ListItem>Cart</ListItem>
           </Link>
-          {/* <ListItem>My Account</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem> */}
+          <Link style={{textDecoration:"none",color:"black",cursor:"pointer", margin:"20px", border:"2px solid black", borderRadius:"50px", width:"120px"}} to ="/hospo">
+          <ListItem>Hospo Deals</ListItem>
+          </Link>
+          <Link style={{textDecoration:"none",color:"black",cursor:"pointer", margin:"20px", border:"2px solid black", borderRadius:"50px", width:"120px"}} to ="/functions">
+          <ListItem>Functions</ListItem>
+          </Link>
+         
         </List>
       </Center>
       <Right>

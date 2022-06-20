@@ -28,7 +28,9 @@ export default function WidgetLg() {
           <th className="widgetLgTh">Amount</th>
           <th className="widgetLgTh">Status</th>
         </tr>
-        {orders.map((order)=>(
+        {orders
+        .sort((a,b) => new Date(a) < new Date(b) ? 1 : -1)
+        .map((order)=>(
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
            

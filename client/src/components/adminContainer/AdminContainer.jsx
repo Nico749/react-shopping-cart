@@ -6,6 +6,7 @@ import Users from '../adminUsers/Users';
 import Home from '../Home'
 import './adminContainer.css';
 import Recipes from '../Recipes';
+import AdminItems from '../adminItems/AdminItems';
 
 export default function AdminContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -22,6 +23,9 @@ export default function AdminContainer() {
       }
       if (currentPage === 'AdminEmployees') {
         return <AdminEmployees />;
+      }
+      if (currentPage === 'Items') {
+        return <AdminItems />;
       }
     return <Users />;
   };
