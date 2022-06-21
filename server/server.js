@@ -15,7 +15,7 @@ const cors = require ('cors')
 dotenv.config({ path: '.dotenv' })
 
 mongoose
-.connect(process.env.MONGO_URL)
+.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nicoshop',)
 .then(()=>{console.log("Db connection successfull")})
 .catch((err)=>{console.log(err)})
 //prevent errors with CORS
