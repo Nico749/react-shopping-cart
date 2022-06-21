@@ -95,7 +95,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>NICO'S SHOP</Logo>
+        <Logo>MAMMA CHE PASTA! </Logo>
         <Desc>
           Follow us on
         </Desc>
@@ -139,7 +139,7 @@ const Footer = () => {
           <Phone style={{marginRight:"10px"}}/> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> <a style={{textDecoration:"none",color:"black",cursor:"pointer"}}href="mailto:info@nicos.com">info@nicos.com</a> 
+          <MailOutline style={{marginRight:"10px"}} /> <a style={{textDecoration:"none",color:"black",cursor:"pointer"}}href="mailto:info@mcpasta.com">info@mcpasta.com</a> 
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>

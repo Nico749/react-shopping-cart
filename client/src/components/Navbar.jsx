@@ -27,13 +27,14 @@ const Left = styled.div`
  `
 
 const Center = styled.div`
-  flex: 1;
+  flex: 2;
   text-align: center;
   font-size:32px;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.h2`
   font-weight: bold;
+  font-size: 62px;
 
 `;
 const Right = styled.div`
@@ -74,7 +75,7 @@ function Navbar() {
             <Left>
             </Left>
             <Center>
-              <Logo>NICO'S PASTA</Logo>
+              <Logo>MAMMA CHE PASTA! </Logo>
             </Center>
             <Right>
               <Item>Welcome {JSON.parse(localStorage.getItem('user'))}!</Item>
@@ -106,7 +107,7 @@ function Navbar() {
             <Left>
             </Left>
             <Center>
-              <Logo>NICO'S PASTA</Logo>
+              <Logo>MAMMA CHE PASTA!</Logo>
             </Center>
             <Right>
               <Link to='/register' style={{ textDecoration: 'none', color: 'black' }}>

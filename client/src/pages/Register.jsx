@@ -69,8 +69,7 @@ const Button = styled.button`
 const Register = () => {
 
   const [user,setUser]  =useState({})
-  //const [username, setUsername] = useState("");
-  //const [password, setPassword] = useState("");
+
   const dispatch = useDispatch()
   const handleChange =(e)=>{
     setUser(prev=>{
@@ -84,7 +83,10 @@ const Register = () => {
     addClient(newUser,dispatch)
     //login(dispatch, { username, password });
     
+
+    
   }
+
   return (
     <Container>
       <Wrapper>
