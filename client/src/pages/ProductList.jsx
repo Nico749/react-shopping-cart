@@ -50,11 +50,12 @@ function ProductList() {
   const [sort, setSort] = useState("")
   return (
     <Container>
+      <div style={{ background: "#c5f0fc" }}>
+        <Link to="/">
+          <KeyboardBackspaceOutlinedIcon />
+        </Link>
+      </div>
       <Navbar />
-
-      <Link to="/">
-        <KeyboardBackspaceOutlinedIcon />
-      </Link>
       <Title>{category}</Title>
       <FilterContainer>
         <Filter>

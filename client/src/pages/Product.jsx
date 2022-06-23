@@ -8,10 +8,15 @@ import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+
+
 
 const Container = styled.div`
 
 `;
+
 
 const Wrapper = styled.div`
   padding: 50px;
@@ -122,10 +127,17 @@ const Product = () => {
     //localStorage.setItem('cart',quantity)
    dispatch(addProduct({...product, quantity}))
   }
+ 
   
   return (
     <Container>
-      <Navbar />   
+      <div style={{ background: "#c5f0fc" }}>
+        <Link to="/">
+          <KeyboardBackspaceOutlinedIcon />
+        </Link>
+      </div>
+      
+      <Navbar />  
       <Wrapper>
         <ImgContainer>
           <Image src={product.image} />
