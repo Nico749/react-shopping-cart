@@ -37,7 +37,11 @@ Project is created with:
 * Edit user and product on admin portal
 
 ## Demo
-Since the app is not deployed, click [here](https://drive.google.com/file/d/18hbYqiJbBphxTcxQ9gwVXGTzIKCwPKQV/view) for a short walkthrough video of the user experience and [here](https://drive.google.com/file/d/1LAiwQHxgq7AkFBGwfSbF-uLGao-uTm8D/view) to see the admin portal.
+The following images shows the web application's appearance:
+![User Demo](./Demo/UserHome.png)
+![Admin Demo](./Demo/AdminHome.png)
+
+Since the app is not deployed, click [here](https://drive.google.com/file/d/15nf-O3VjQHaZ81yoBsnNyC0tBvwmJxRS/view) for a short walkthrough video of the user experience and [here](https://drive.google.com/file/d/1RfC4euHVVr2f5B0pSqNmhP9PODDkvp-K/view) to see the admin portal.
 
 ## Installation
 
