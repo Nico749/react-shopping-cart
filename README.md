@@ -29,23 +29,22 @@ Project is created with:
 * MVP working, changes needed to complete the application
 
 ## Future Development
-* Login and register processes need to be completed (for both user and admin)
-* User has to be able to remove an item from cart
+
 * User input validation
 * Set up Stripe backend
 * Complete order sending 
-* Edit user and product on admin portal
+
 
 ## Demo
-The following images shows the web application's appearance:
-![User Demo](./Demo/UserHome.png)
+The following images shows the web application's appearance:<br></br>
+![User Demo](./Demo/UserHome.png)<br></br>
 ![Admin Demo](./Demo/AdminHome.png)
 
-Since the app is not deployed, click [here](https://drive.google.com/file/d/15nf-O3VjQHaZ81yoBsnNyC0tBvwmJxRS/view) for a short walkthrough video of the user experience and [here](https://drive.google.com/file/d/1RfC4euHVVr2f5B0pSqNmhP9PODDkvp-K/view) to see the admin portal.
+You can also click [here](https://drive.google.com/file/d/15nf-O3VjQHaZ81yoBsnNyC0tBvwmJxRS/view) for a short walkthrough video of the user experience and [here](https://drive.google.com/file/d/1RfC4euHVVr2f5B0pSqNmhP9PODDkvp-K/view) to see the admin portal.
 
 ## Installation
 
-To run locally the application clone [this link](https://github.com/Nico749/react-shopping-cart.git) on your local machine and the run npm start for server, client and admin folders.
+To run locally the application clone [this link](https://github.com/Nico749/react-shopping-cart.git) on your local machine and the run npm start for server and client after installing all the packages.
 
 
 ## License
